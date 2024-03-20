@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuling Sun</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="./common.js"></script>
+</head>
+
+<body>
+  <header id="header">
+    <div class="header-container">
+      <h1>Yuling Sun</h1>
+      <div class="menu-container">
+        <span onclick="changeMenu(0)">Home</span>
+        <span onclick="changeMenu(1)">News</span>
+        <span onclick="changeMenu(2)">Publication</span>
+        <span onclick="changeMenu(3)">Projects</span>
+        <span class="active" onclick="changeMenu(null)">Teaching</span>
+        <span onclick="changeMenu(5)">Students</span>
+        <span onclick="changeMenu(6)">Personal Life</span>
+        <span onclick="changeMenu(7)">Contact</span>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section id="userInfo">
+      <img src="./img/homepage.png">
+      <p class="username">Yuling Sun</p>
+      <p>Associate Professor</p>
+      <p>East China Normal University</p>
+      <div class="icon-box">
+        <img class="icon" src="./img/icon/icon1.png">
+        <img class="icon" src="./img/icon/icon2.png">
+        <img class="icon" src="./img/icon/icon3.png">
+        <img class="icon" src="./img/icon/icon4.png">
+      </div>
+    </section>
+    <section id="content">
+      <ul>
+        <li>Spring 2024, Human-Computer Interaction
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>
+<style>
+  li {
+    margin-left: 18px;
+    margin-top: 10px;
+  }
+</style>

@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Hiragino Sans GB", "Microsoft Yahei", tahoma, arial, sans-serif;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+
+  /* CSS样式适配移动设备 */
+  .header-container {
+    padding: 15px 0px !important;
+    flex-direction: column !important;
+  }
+
+  .menu-container {
+    text-align: center !important;
+  }
+
+  #main {
+    padding-top: 150px !important;
+  }
+
+  #userInfo {
+    width: 100% !important;
+  }
+}
+
+body {
+  max-width: 1050px;
+  position: relative;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+a:visited {
+  color: blue !important;
+  /* 访问过的链接还原为默认颜色 */
+}
+
+/* 菜单栏 */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  background-color: #FFF;
+  text-align: center;
+}
+
+.header-container {
+  margin: 0 auto;
+  padding: 15px 50px;
+  max-width: 1050px;
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header>h1 {
+  width: 200px;
+  font-family: Cochin;
+}
+
+.menu-container {
+  flex: 1;
+  text-align: right;
+}
+
+/* .menu-container>span {
+  display: inline-block;
+  padding: 0 5px;
+  font-weight:700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}*/
+
+.menu-container>.active {
+  color: #0239bd
+}
+
+/* .menu-container>span:hover {
+  transform: translateY(-2px);
+}  */
+
+
+.menu-container>span {
+  position: relative;
+  padding: 0 5px;
+  font-weight:700;
+  cursor: pointer;
+}
+
+.menu-container>span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #0239bd;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.menu-container>span:hover::before {
+  width: 100%;
+}
+
+.menu-container>span::before {
+  background-color: #0239bd;
+}
+
+.menu-container>span:hover::before {
+  background-color: #0239bd;
+}
+
+.menu-container>span::before {
+  height: 4px;
+}
+
+.menu-container>span:hover::before {
+  height: 4px;
+}
+
+.menu-container>span::before {
+  bottom: -8px;
+}
+
+.menu-container>span:hover::before {
+  bottom: -8px;
+}
+
+.menu-container>span::before {
+  background-image: linear-gradient(to right, #09f 0%, #0239bd 100%);
+}
+
+.menu-container>span:hover::before {
+  background-image: linear-gradient(to right, #0239bd 0%, #09f 100%);
+}
+
+
+/* 主内容区 */
+#main {
+  padding: 110px 50px 30px 50px;
+  text-align: justify;
+  /* 设置文字左右对齐 */
+  /* display: flex;
+  justify-content: space-between */
+}
+
+/* #content {
+  flex: 1;
+} */
+
+#content>p>span,#content>ul>li>span {
+  font-weight: 800;
+}
+
+.red {
+  color: red
+}
+
+.orange{
+  color:orange;
+  font-style:italic
+}
+
+#userInfo {
+  width: 320px;
+  float: right;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+#userInfo>img {
+  width: 280px;
+}
+
+.username {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.icon-box {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 180px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-box>.icon {
+  width: 30px;
+}
+
+.icon-box>.icon:nth-child(1),
+.icon-box>.icon:nth-child(3) {
+  cursor: pointer;
+}
+
+#footer {
+  border-top: 1px solid #ccc;
+  padding: 30px 50px 30px 50px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
