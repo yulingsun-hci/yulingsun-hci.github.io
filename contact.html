@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yuling Sun</title>
+  <link rel="icon" href="./img/homepage.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <script src="./common.js"></script>
 </head>
@@ -16,7 +17,7 @@
       <div class="menu-container">
         <span onclick="changeMenu(0)">Home</span>
         <span onclick="changeMenu(1)">News</span>
-        <span onclick="changeMenu(2)">Publication</span>
+        <span onclick="changeMenu(2)">Publications</span>
         <span onclick="changeMenu(3)">Projects</span>
         <span onclick="changeMenu(4)">Teaching</span>
         <span onclick="changeMenu(5)">Students</span>
@@ -35,14 +36,14 @@
         <img class="icon" src="./img/icon/icon1.png" onclick="toUrl(1)">
         <img class="icon" src="./img/icon/icon2.png">
         <img class="icon" src="./img/icon/icon3.png" onclick="toUrl(2)">
-        <img class="icon" src="./img/icon/icon4.png">
+        <img class="icon" src="./img/icon/icon4.png" onclick="toUrl(2)">
       </div>
     </section>
     <section id="content">
       <div class="title" style="margin-top:50px">
         <p>Email:</p>
       </div>
-      <p>ylsun@cs.ecnu.edu.cn</p>
+      <p onclick="toUrl(1)" class="to-email">ylsun@cs.ecnu.edu.cn</p>
       <div class="title">
         <p>ECNU Office:</p>
       </div>
@@ -66,6 +67,10 @@
     justify-content: flex-start;
     ;
     align-items: center;
+  }
+
+  .to-email{
+    cursor: pointer;
   }
 
   .title>p {

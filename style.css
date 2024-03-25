@@ -6,6 +6,22 @@
   word-wrap: break-word;
 }
 
+a:hover{
+  text-decoration: none;
+  border-bottom: 1px dotted gray;
+  color: gray;
+}
+a:link,a:visited,a:active,a:focus{
+	text-decoration: none;
+  border-bottom: 1px dotted gray;
+  color:#333;
+}
+
+li{
+  line-height:1.8;
+}
+
+
 @media (max-width: 768px) {
 
   /* CSS样式适配移动设备 */
@@ -34,10 +50,6 @@ body {
   font-size: 16px;
 }
 
-a:visited {
-  color: blue !important;
-  /* 访问过的链接还原为默认颜色 */
-}
 
 /* 菜单栏 */
 #header {
@@ -59,6 +71,7 @@ a:visited {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-items: baseline
 }
 
 #header>h1 {
@@ -201,7 +214,8 @@ a:visited {
 }
 
 .icon-box>.icon:nth-child(1),
-.icon-box>.icon:nth-child(3) {
+.icon-box>.icon:nth-child(3),
+.icon-box>.icon:nth-child(4) {
   cursor: pointer;
 }
 

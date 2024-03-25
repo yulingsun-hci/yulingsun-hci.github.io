@@ -41,5 +41,7 @@ function toUrl(str) {
     window.location.href = 'mailto:ylsun@cs.ecnu.edu.cn'
   } else if (str == 2) {
     window.open('https://scholar.google.com/citations?user=qGUy4s0AAAAJ&hl=en&oi=sra')
+  } else if (str == 3) {
+    window.open('https://docs.google.com/document/d/1LbNu-JGxNTKyGGh_UoxfnfFt8QHmbnj-/edit?usp=sharing&ouid=105846516868763140042&rtpof=true&sd=true')
   }
 }
