@@ -41,7 +41,7 @@ function toUrl(str) {
   let lastSlashIndex = path.lastIndexOf('/');
   let newPath = path.slice(0, lastSlashIndex);
   if (str == 0) {
-    window.location.href = newPath + "/personalPhotos.html"
+    window.open(newPath + "/personalPhotos.html");
   }
   if (str == 1) {
     window.location.href = 'mailto:ylsun@cs.ecnu.edu.cn'
