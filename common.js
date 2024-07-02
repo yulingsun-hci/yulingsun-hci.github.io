@@ -19,7 +19,7 @@ function changeMenu(index) {
       window.location.href = newPath + "/publication.html";
       break;
     case 3:
-      window.location.href = newPath + "/projects.html";
+      window.location.href = newPath + "/research.html";
       break;
     case 4:
       window.location.href = newPath + "/teaching.html";
@@ -37,11 +37,18 @@ function changeMenu(index) {
 }
 
 function toUrl(str) {
+  let path = window.location.href;
+  let lastSlashIndex = path.lastIndexOf('/');
+  let newPath = path.slice(0, lastSlashIndex);
+  if (str == 0) {
+    window.location.href = newPath + "/personalPhotos.html"
+  }
   if (str == 1) {
     window.location.href = 'mailto:ylsun@cs.ecnu.edu.cn'
   } else if (str == 2) {
     window.open('https://scholar.google.com/citations?user=qGUy4s0AAAAJ&hl=en&oi=sra')
   } else if (str == 3) {
-    window.open('https://docs.google.com/document/d/1LbNu-JGxNTKyGGh_UoxfnfFt8QHmbnj-/edit?usp=sharing&ouid=105846516868763140042&rtpof=true&sd=true')
+    // window.open('https://docs.google.com/document/d/1LbNu-JGxNTKyGGh_UoxfnfFt8QHmbnj-/edit?usp=sharing&ouid=105846516868763140042&rtpof=true&sd=true')
+    window.open(newPath + "/cvpdf.html");
   }
 }

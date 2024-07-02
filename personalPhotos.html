@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuling Sun</title>
+  <link rel="icon" href="./img/homepage.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <script src="./common.js"></script>
+</head>
+
+<body>
+  <header id="header">
+    <div class="header-container">
+      <h1>Yuling Sun</h1>
+      <div class="menu-container">
+        <span onclick="changeMenu(0)">Home</span>
+        <span onclick="changeMenu(1)">News</span>
+        <span onclick="changeMenu(2)">Publications</span>
+        <span onclick="changeMenu(3)">Research</span>
+        <span onclick="changeMenu(4)">Teaching</span>
+        <span onclick="changeMenu(5)">Students</span>
+        <span onclick="changeMenu(6)">Personal Life</span>
+        <span onclick="changeMenu(7)">Contact</span>
+      </div>
+    </div>
+
+  </header>
+  <main id="main">
+    <img class="photo" src="./img/personal/PersonalHDPhoto_black.jpg">
+    <h1>PersonalHDPhoto(1)</h1>
+    <img class="photo" src="./img/personal/PersonalHDPhoto_blue.jpg">
+    <h1>PersonalHDPhoto(2)</h1>
+    <img class="photo" src="./img/personal/PersonalHDPhoto_red.jpg">
+    <h1>PersonalHDPhoto(3)</h1>
+  </main>
+</body>
+
+<style>
+  #main{
+    text-align: center;
+  }
+  .photo{
+    width:100%;
+    margin-top:50px;
+    margin-bottom:10px;
+  }
+  .photo:first-child{
+    margin:10px;
+  }
+</style>
