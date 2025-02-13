@@ -175,7 +175,8 @@ body {
 }
 
 .red {
-  color: red
+  color: red;
+	font-style:italic
 }
 
 .orange{
