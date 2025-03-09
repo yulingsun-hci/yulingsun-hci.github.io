@@ -34,6 +34,10 @@ li{
     text-align: center !important;
   }
 
+	.main-title {
+  text-transform: capitalize;
+}
+
   #main {
     padding-top: 150px !important;
   }
