@@ -24,13 +24,13 @@ function changeMenu(index) {
     case 4:
       window.location.href = newPath + "/teaching.html";
       break;
+   // case 5:
+     // window.location.href = newPath + "/students.html";
+    //  break;
     case 5:
-      window.location.href = newPath + "/students.html";
-      break;
-    case 6:
       window.location.href = newPath + "/personalLife.html";
       break;
-    case 7:
+    case 6:
       window.location.href = newPath + "/contact.html";
       break;
   }
