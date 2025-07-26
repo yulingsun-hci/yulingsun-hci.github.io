@@ -44,7 +44,7 @@ function toUrl(str) {
     window.open(newPath + "/personalPhotos.html");
   }
   if (str == 1) {
-    window.location.href = 'mailto:yulingsu@umich.edu'
+    window.location.href = 'mailto:yulingsun@fudan.edu.cn'
   } else if (str == 2) {
     window.open('https://scholar.google.com/citations?user=qGUy4s0AAAAJ&hl=en&oi=sra')
   } else if (str == 3) {
