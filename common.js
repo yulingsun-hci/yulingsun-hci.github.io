@@ -22,7 +22,7 @@ function changeMenu(index) {
       window.location.href = newPath + "/research.html";
       break;
     case 4:
-      window.location.href = newPath + "/teaching.html";
+      window.location.href = newPath + "/awards.html";
       break;
    // case 5:
      // window.location.href = newPath + "/students.html";
