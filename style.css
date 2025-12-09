@@ -63,6 +63,16 @@ body {
   position: relative;
   margin: 0 auto;
   font-size: 16px;
+	background-color: #f4f5f8;
+}
+
+/* 白色内容主体，居中显示 */
+.content-wrapper {
+  background-color: #ffffff;
+  max-width: 1050px;   /* 你想要的宽度 */
+  margin: 0 auto;      /* 居中 */
+  padding: 20px 50px;  /* 内边距，可根据需求调整 */
+  box-sizing: border-box;
 }
 
  .venue-badge {
