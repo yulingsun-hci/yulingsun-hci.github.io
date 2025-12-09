@@ -58,13 +58,32 @@ li{
   }
 }
 
-body {
-  max-width: 1050px;
-  position: relative;
-  margin: 0 auto;
-  font-size: 16px;
-	background-color: #f4f5f8;
+html {
+  background-color: #f4f5f8;
 }
+
+body {
+  margin: 0;
+  font-size: 16px;
+  background-color: #f4f5f8;
+  position: relative;
+}
+
+/* 中间白色内容主体，居中显示 */
+.content-wrapper {
+  background-color: #ffffff;
+  max-width: 1050px;   /* 中间白色宽度 */
+  margin: 0 auto;      /* 居中 */
+  padding: 110px 50px 30px 50px;  /* 把原来 #main 的 padding 移到这里 */
+  box-sizing: border-box;
+}
+
+/* 主内容区只负责布局，不再加左右 padding */
+#main {
+  padding: 0;
+  text-align: justify;
+}
+
 
 /* 白色内容主体，居中显示 */
 .content-wrapper {
