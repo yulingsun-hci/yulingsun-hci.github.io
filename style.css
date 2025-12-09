@@ -49,7 +49,7 @@ body {
   background-color: #ffffff;
   max-width: 1050px;
   margin: 0 auto;
-  padding: 110px 50px 30px 50px; /* 左右 50px 与 header 一致 */
+  padding: 110px 50px 40px 50px; /* 左右 50px 与 header 一致 */
   box-sizing: border-box;
      border-radius: 16px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
