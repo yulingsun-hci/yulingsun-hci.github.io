@@ -1,3 +1,6 @@
+/* =====================
+   全局基础样式
+   ===================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,60 +9,30 @@
   word-wrap: break-word;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
   border-bottom: 1px dotted gray;
   color: gray;
 }
-a:link,a:visited,a:active,a:focus{
-	text-decoration: none;
+
+a:link,
+a:visited,
+a:active,
+a:focus {
+  text-decoration: none;
   border-bottom: 1px dotted gray;
-  color:#333;
+  color: #333;
 }
 
-li{
-  line-height:1.8;
+li {
+  line-height: 1.8;
 }
 
-
-
-@media (max-width: 768px) {
-
-  /* CSS样式适配移动设备 */
-  .header-container {
-    padding: 15px 0px !important;
-    flex-direction: column !important;
-  }
-
-  .menu-container {
-    text-align: center !important;
-  }
-
-	.main-title {
-  text-transform: capitalize;
-}
-	.award-title {
-  margin-bottom: 4px;        /* 行间距更小 */
-}
-
-.award-detail {
-  list-style: none;          /* 去掉黑点 */
-  padding-left: 20px;        /* 右缩进，使内容对齐 */
-  margin-top: 0;             /* 减小段间距 */
-  margin-bottom: 10px;       /* 你可调节 */
-}
-
-  #main {
-    padding-top: 150px !important;
-  }
-
-  #userInfo {
-    width: 100% !important;
-  }
-}
-
+/* =====================
+   页面背景 & 布局框架
+   ===================== */
 html {
-  background-color: #f4f5f8;
+  background-color: #f4f5f8; /* 整个页面浅灰 */
 }
 
 body {
@@ -69,43 +42,24 @@ body {
   position: relative;
 }
 
-/* 中间白色内容主体，居中显示 */
+/* 中间白色内容块，宽度和 header-container 完全一致 */
 .content-wrapper {
   background-color: #ffffff;
-  max-width: 1050px;   /* 中间白色宽度 */
-  margin: 0 auto;      /* 居中 */
-  padding: 110px 50px 30px 50px;  /* 把原来 #main 的 padding 移到这里 */
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 110px 50px 30px 50px; /* 左右 50px 与 header 一致 */
   box-sizing: border-box;
 }
 
-/* 主内容区只负责布局，不再加左右 padding */
+/* 主内容区：只负责文字排版 */
 #main {
   padding: 0;
   text-align: justify;
 }
 
-
-/* 白色内容主体，居中显示 */
-.content-wrapper {
-  background-color: #ffffff;
-  max-width: 1050px;   /* 你想要的宽度 */
-  margin: 0 auto;      /* 居中 */
-  padding: 20px 50px;  /* 内边距，可根据需求调整 */
-  box-sizing: border-box;
-}
-
- .venue-badge {
-            background-color: #0066CC; /* 蓝色背景（可根据实际调整色值） */
-            color: white; /* 白色文字 */
-            padding: 1px 4px; /* 内边距，控制大小 */
-            border-radius: 4px; /* 圆角（如果需要） */
-            font-weight: bold; /* 加粗文字 */
-            font-size: inherit; /* 继承父级文字大小 */
-            display: inline-block; /* 让元素自适应内容宽度 */
-        }
-
-
-/* 菜单栏 */
+/* =====================
+   顶部导航栏
+   ===================== */
 #header {
   position: fixed;
   top: 0;
@@ -113,9 +67,9 @@ body {
   width: 100%;
   box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.5);
   z-index: 100;
-  background-color: #0D3070;
+  background-color: #0d3070;
   text-align: center;
-	  color: white;  /* ← 让 header 里的文字变白 */
+  color: white;
 }
 
 .header-container {
@@ -125,13 +79,10 @@ body {
   line-height: 1.5;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  align-items: baseline
+  align-items: baseline;
 }
 
-
-
-#header>h1 {
+.header-container h1 {
   width: 200px;
   font-family: Cochin;
 }
@@ -141,106 +92,55 @@ body {
   text-align: right;
 }
 
-/* .menu-container>span {
-  display: inline-block;
-  padding: 0 5px;
-  font-weight:700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}*/
-
-.menu-container>.active {
-  color: #6EC9EE
+.menu-container > .active {
+  color: #6ec9ee;
 }
 
-/* .menu-container>span:hover {
-  transform: translateY(-2px);
-}  */
-
-
-.menu-container>span {
+.menu-container > span {
   position: relative;
   padding: 0 5px;
-  font-weight:700;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.menu-container>span::before {
+/* 导航下划线动画 */
+.menu-container > span::before {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -8px;
   left: 50%;
   width: 0;
-  height: 2px;
-  background-color: #0239bd;
+  height: 4px;
   transform: translateX(-50%);
-  transition: width 0.3s ease-in-out;
-}
-
-.menu-container>span:hover::before {
-  width: 100%;
-}
-
-.menu-container>span::before {
-  background-color: #0239bd;
-}
-
-.menu-container>span:hover::before {
-  background-color: #0239bd;
-}
-
-.menu-container>span::before {
-  height: 4px;
-}
-
-.menu-container>span:hover::before {
-  height: 4px;
-}
-
-.menu-container>span::before {
-  bottom: -8px;
-}
-
-.menu-container>span:hover::before {
-  bottom: -8px;
-}
-
-.menu-container>span::before {
+  transition: width 0.3s ease-in-out, background-image 0.3s ease-in-out;
   background-image: linear-gradient(to right, #09f 0%, #0239bd 100%);
 }
 
-.menu-container>span:hover::before {
+.menu-container > span:hover::before {
+  width: 100%;
   background-image: linear-gradient(to right, #0239bd 0%, #09f 100%);
 }
 
+/* =====================
+   首页内容区样式
+   ===================== */
 
-/* 主内容区 */
-#main {
-  padding: 110px 50px 30px 50px;
-  text-align: justify;
-  /* 设置文字左右对齐 */
-  /* display: flex;
-  justify-content: space-between */
-}
-
-/* #content {
-  flex: 1;
-} */
-
-#content>p>span,#content>ul>li>span {
+#content > p > span,
+#content > ul > li > span {
   font-weight: 800;
 }
 
 .red {
   color: red;
-	font-style:italic
+  font-style: italic;
 }
 
-.orange{
-  color:orange;
-  font-style:italic
+.orange {
+  color: orange;
+  font-style: italic;
 }
 
+/* 右侧个人信息卡片 */
 #userInfo {
   width: 320px;
   float: right;
@@ -250,7 +150,7 @@ body {
   flex-direction: column;
 }
 
-#userInfo>img {
+#userInfo > img {
   width: 280px;
 }
 
@@ -268,16 +168,17 @@ body {
   justify-content: space-around;
 }
 
-.icon-box>.icon {
+.icon-box > .icon {
   width: 30px;
 }
 
-.icon-box>.icon:nth-child(1),
-.icon-box>.icon:nth-child(3),
-.icon-box>.icon:nth-child(4) {
+.icon-box > .icon:nth-child(1),
+.icon-box > .icon:nth-child(3),
+.icon-box > .icon:nth-child(4) {
   cursor: pointer;
 }
 
+/* 底部 */
 #footer {
   border-top: 1px solid #ccc;
   padding: 30px 50px 30px 50px;
@@ -286,22 +187,32 @@ body {
   flex-direction: column;
 }
 
-/* 整个 Research 区块的背景 */
-.research-area {
-	margin-top: 0;
-  background-color: #f4f5f8;
-  padding: 80px 0 120px;  /* ← 关键改动：让灰色背景自然延展 */
-	padding-top: 0;
+/* 小蓝标签（venue） */
+.venue-badge {
+  background-color: #0066cc;
+  color: white;
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: inherit;
+  display: inline-block;
 }
 
-/* 宽度跟你 header 一致 */
+/* =====================
+   Research 区块
+   ===================== */
+.research-area {
+  margin-top: 0;
+  background-color: #f4f5f8;
+  padding: 80px 0 120px;
+}
+
 .research-wrapper {
   max-width: 1050px;
   margin: 0 auto;
   padding: 0 50px;
 }
 
-/* 标题：RESEARCH OVERVIEW */
 .research-title {
   font-size: 26px;
   font-weight: 700;
@@ -309,7 +220,6 @@ body {
   margin-bottom: 24px;
 }
 
-/* 顶部 tab 导航 */
 .research-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -351,7 +261,7 @@ body {
   margin-bottom: 18px;
 }
 
-/* 卡片内部布局：左文字 + 右图片 */
+/* 卡片内部：左文字 + 右图片 */
 .research-card-body {
   display: flex;
   gap: 24px;
@@ -385,7 +295,6 @@ body {
 .badge-green  { background-color: #37a868; }
 .badge-purple { background-color: #6a61d4; }
 
-/* 简介段落 */
 .research-desc {
   font-size: 14px;
   line-height: 1.7;
@@ -393,7 +302,6 @@ body {
   margin-bottom: 18px;
 }
 
-/* Selected Publications 标题 */
 .research-subtitle {
   font-size: 16px;
   font-weight: 600;
@@ -401,7 +309,6 @@ body {
   margin-bottom: 8px;
 }
 
-/* 论文列表 */
 .research-pubs {
   list-style: disc;
   padding-left: 20px;
@@ -427,8 +334,47 @@ body {
   border-radius: 12px;
 }
 
-/* 简单响应式：小屏时上下排列 */
+/* =====================
+   移动端适配
+   ===================== */
 @media (max-width: 768px) {
+  /* 顶部导航区域 */
+  .header-container {
+    padding: 15px 20px !important;
+    flex-direction: column !important;
+  }
+
+  .menu-container {
+    text-align: center !important;
+  }
+
+  /* 奖项列表小调整 */
+  .main-title {
+    text-transform: capitalize;
+  }
+
+  .award-title {
+    margin-bottom: 4px;
+  }
+
+  .award-detail {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  /* 内容整体下移，避免被 fixed header 遮挡 */
+  .content-wrapper {
+    padding: 150px 20px 20px 20px;
+  }
+
+  #userInfo {
+    width: 100% !important;
+    float: none;
+  }
+
+  /* Research 卡片在小屏纵向排布 */
   .research-wrapper {
     padding: 0 20px;
   }
@@ -445,12 +391,12 @@ body {
     justify-content: center;
     margin-top: 12px;
   }
-	.research-panel {
-  display: none;
-}
 
-.research-panel.active {
-  display: block;
-}
-}
+  .research-panel {
+    display: none;
+  }
 
+  .research-panel.active {
+    display: block;
+  }
+}
