@@ -86,6 +86,7 @@ body {
   z-index: 100;
   background-color: #0D3070;
   text-align: center;
+	  color: white;  /* ← 让 header 里的文字变白 */
 }
 
 .header-container {
