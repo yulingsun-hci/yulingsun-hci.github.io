@@ -11,67 +11,84 @@
 </head>
 
 <body>
-   <div class="page-bg">
-  <header id="header">
-    <div class="header-container">
-      <h1>Yuling Sun</h1>
-      <div class="menu-container">
-        <span class="active" onclick="changeMenu(null)">Home</span>
-        <span onclick="changeMenu(1)">News</span>
-        <span onclick="changeMenu(2)">Publications</span>
-        <span onclick="changeMenu(3)">Research</span>
-        <span onclick="changeMenu(4)">Awards</span>
-       <!-- <span onclick="changeMenu(5)">Students</span> -->
-        <span onclick="changeMenu(5)">Life</span>
-        <span onclick="changeMenu(6)">Contact</span>
+  <div class="page-bg">
+    <header id="header">
+      <div class="header-container">
+        <h1>Yuling Sun</h1>
+        <div class="menu-container">
+          <span class="active" onclick="changeMenu(null)">Home</span>
+          <span onclick="changeMenu(1)">News</span>
+          <span onclick="changeMenu(2)">Publications</span>
+          <span onclick="changeMenu(3)">Research</span>
+          <span onclick="changeMenu(4)">Awards</span>
+          <!-- <span onclick="changeMenu(5)">Students</span> -->
+          <span onclick="changeMenu(5)">Life</span>
+          <span onclick="changeMenu(6)">Contact</span>
+        </div>
       </div>
-    </div>
-  </header>
-  <main id="main">
-     <div class="content-wrapper">
-    <section id="userInfo">
-      <img src="./img/homepage.png">
-      <p class="username" onclick="toUrl(0)">Yuling Sun</p>
+    </header>
 
-            <p>Professor</p>
-      <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>
-      <div class="icon-box">
-        <img class="icon" src="./img/icon/icon1.jpg" onclick="toUrl(1)">
-        <img class="icon" src="./img/icon/icon2.jpg">
-        <img class="icon" src="./img/icon/icon3.jpg" onclick="toUrl(2)">
-        <img class="icon" src="./img/icon/icon4.jpg" onclick="toUrl(3)">
-      </div>
-    </section>
-    <section id="content" class="home">
-      <p>Hello/你好呀! This is Yuling (Chinese characters: 孙玉灵), a research professor at <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>.
-        I am also a visiting professor at <a href="https://umich.edu/" target="_black">University of Michigan</a>. 
-        Before that, I was an associate professor at <a href="https://english.ecnu.edu.cn/" target="_black">East China Normal University</a>. 
-        I received my Ph.D. under the supervision of <a href="https://cscw.fudan.edu.cn/ninggu/list.htm" target="_black">Prof. Ning Gu</a> from <a
-          href="https://cscw.fudan.edu.cn/" target="_black">CISL Lab</a> at <a
-          href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>. 
-      </p>
-      <br>
-      <p>My research lies at the interaction of <span>Human-computer Interaction (HCI), Computer Supported Collaborative
-          Work(CSCW)</span>, and <span>Social Computing</span>. My current work primarily focuses on issues of
-        technology(AI)-mediated aging, healthcare, education, city governance, and rural revitalization. 
-        I adopt socio-technical approaches to <span>understand and
-        design human-centered tools, technologies, and systems</span> to promote individual and social health and well-being. My overarching
-        goal is
-        computing technologies can be better designed to unlock the potential of individuals, support collaborations,
-        promote individual and social well-being, and create a positive societal impact.
-      </p>
-      <br>
-      <br>
-      <p class="red">I am looking for talented and highly motivated Master/PhD students, as well as undergraduates and visiting interns/scholars,
-        who are interested in various research projects on social computing, computer-supported collaborative work, human-computer interaction for aging, healthcare, education, rural, 
-        and governance to join my research group at <strong>Fudan University</strong>, starting in Fall 2026. 
-        Please send me your CV if you are interested or have any questions.
-      </p>
-    </section>
-  </main>
-   </div>
+    <!-- ⭐ 中间白色区域整体包裹 -->
+    <div class="content-wrapper">
+      <main id="main">
+        <section id="userInfo">
+          <img src="./img/homepage.png">
+          <p class="username" onclick="toUrl(0)">Yuling Sun</p>
+          <p>Professor</p>
+          <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>
+          <div class="icon-box">
+            <img class="icon" src="./img/icon/icon1.jpg" onclick="toUrl(1)">
+            <img class="icon" src="./img/icon/icon2.jpg">
+            <img class="icon" src="./img/icon/icon3.jpg" onclick="toUrl(2)">
+            <img class="icon" src="./img/icon/icon4.jpg" onclick="toUrl(3)">
+          </div>
+        </section>
+
+        <section id="content" class="home">
+          <p>
+            Hello/你好呀! This is Yuling (Chinese characters: 孙玉灵), a research professor at
+            <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>.
+            I am also a visiting professor at
+            <a href="https://umich.edu/" target="_black">University of Michigan</a>.
+            Before that, I was an associate professor at
+            <a href="https://english.ecnu.edu.cn/" target="_black">East China Normal University</a>.
+            I received my Ph.D. under the supervision of
+            <a href="https://cscw.fudan.edu.cn/ninggu/list.htm" target="_black">Prof. Ning Gu</a> from
+            <a href="https://cscw.fudan.edu.cn/" target="_black">CISL Lab</a> at
+            <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>.
+          </p>
+          <br>
+          <p>
+            My research lies at the interaction of
+            <span>Human-computer Interaction (HCI), Computer Supported Collaborative Work(CSCW)</span>,
+            and <span>Social Computing</span>. My current work primarily focuses on issues of
+            technology(AI)-mediated aging, healthcare, education, city governance, and rural revitalization.
+            I adopt socio-technical approaches to
+            <span>understand and design human-centered tools, technologies, and systems</span>
+            to promote individual and social health and well-being. My overarching goal is
+            computing technologies can be better designed to unlock the potential of individuals, support collaborations,
+            promote individual and social well-being, and create a positive societal impact.
+          </p>
+          <br><br>
+          <p class="red">
+            I am looking for talented and highly motivated Master/PhD students, as well as undergraduates and visiting
+            interns/scholars, who are interested in various research projects on social computing, computer-supported
+            collaborative work, human-computer interaction for aging, healthcare, education, rural,
+            and governance to join my research group at <strong>Fudan University</strong>, starting in Fall 2026.
+            Please send me your CV if you are interested or have any questions.
+          </p>
+        </section>
+      </main>
+    </div>
   </div>
+
+  <style>
+    .home > p {
+      line-height: 2;
+    }
+  </style>
 </body>
+
 <style>
   .home>p {
     line-height: 2
