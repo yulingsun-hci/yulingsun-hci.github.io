@@ -419,3 +419,12 @@ body {
 }
 
 
+/* 让红色段落跨越 flex，独占一整行 */
+.full-width {
+  flex-basis: 100%;
+  width: 100%;
+  text-align: justify; 
+  margin-top: 30px;
+}
+
+
