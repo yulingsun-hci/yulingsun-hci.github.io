@@ -93,7 +93,7 @@ body {
 
 /* 标题本身不要再有 margin 和多余宽度 */
 .header-container h1 {
-  font-family: "Hiragino Sans GB", "Microsoft Yahei", tahoma, arial, sans-serif;
+  font-family: Cochin, Georgia, "Times New Roman", serif;
   font-size: 28px;
   font-weight: 700;
   margin: 0;
