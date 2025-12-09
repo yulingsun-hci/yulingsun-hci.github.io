@@ -414,5 +414,12 @@ body {
     justify-content: center;
     margin-top: 12px;
   }
+	.research-panel {
+  display: none;
+}
+
+.research-panel.active {
+  display: block;
+}
 }
 
