@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuling Sun</title>
+  <link rel="icon" href="./img/homepage.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <script src="./common.js"></script>
+</head>
+
+<body>
+  <header id="header">
+    <div class="header-container">
+      <h1><span>Yuling Sun</span></h1>
+      <div class="menu-container">
+        <span onclick="changeMenu(0)">Home</span>
+        <span onclick="changeMenu(1)">News</span>
+        <span onclick="changeMenu(2)">Publications</span>
+        <span class="active" onclick="changeMenu(null)">Research</span>
+        <span onclick="changeMenu(4)">Awards</span>
+       <!-- <span onclick="changeMenu(5)">Students</span> -->
+        <span onclick="changeMenu(5)">Life</span>
+        <span onclick="changeMenu(6)">Contact</span>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+   <section class="research-area">
+  <div class="research-wrapper">
+
+    <!-- 标题 -->
+    <h2 class="research-title">RESEARCH OVERVIEW</h2>
+
+    <!-- 上方标签导航 -->
+    <div class="research-tabs">
+      <button class="research-tab active">#AI</button>
+      <button class="research-tab">AI-Powered Education</button>
+      <button class="research-tab">Data-driven Caregiving</button>
+      <button class="research-tab">Collaborative</button>
+      <button class="research-tab">Computing Technology</button>
+    </div>
+
+    <!-- 白色卡片 -->
+    <div class="research-card">
+      <div class="research-card-header">
+        <h3>PROJECT: AGING WITHIN DIGITAL SOCIETY</h3>
+      </div>
+
+      <div class="research-card-body">
+        <!-- 左边文字部分 -->
+        <div class="research-card-text">
+          <!-- 彩色小标签 -->
+          <div class="research-labels">
+            <span class="badge badge-orange">#AI</span>
+            <span class="badge badge-blue">#Geronology</span>
+            <span class="badge badge-green">#Caregiving</span>
+            <span class="badge badge-purple">#SmartAging</span>
+          </div>
+
+          <p class="research-desc">
+            If ames tiour a shemsie ihal es las final sxt wnd iuciuon whiin sbimcet
+            wintresh or dia verjed bast to the are out ay as os faries whiite
+            samy a conlacts. （这里换成你自己的简介文案）
+          </p>
+
+          <h4 class="research-subtitle">Selected Publications</h4>
+          <ul class="research-pubs">
+            <li>Yuling Sun, et.</li>
+            <li>#Data-driven Caregiving</li>
+            <li>#From selection 0: Best the cred your Comined pnaet and this creatios the ut he puchenies.</li>
+            <li>⭐ <strong>Yuling Sun, etl. "Best Paper Award"</strong> …</li>
+          </ul>
+        </div>
+
+        <!-- 右边图片部分 -->
+        <div class="research-card-image">
+          <img src="img/research-thumbs.png" alt="Research thumbnails">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Research Overview 区块结束 -->
+  </main>
+</body>
+
+</html>
+
+<style>
+  .main-title {
+    margin-top: 30px;
+    margin-bottom:20px;
+    flex:1;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0239bd;
+    border-bottom: 3px solid #0239bd;
+    text-transform: uppercase;
+    transform: skew(-10deg);
+  }
+
+  .article>p {
+    margin-bottom: 10px;
+  }
+  .article-title{
+    margin-bottom:40px;
+    width: 100%;
+    color:#0239bd;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .title {
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .title>p {
+    font-weight: 700;
+  }
+
+  li {
+    margin-left: 18px;
+    margin-top: 20px;
+  }
+
+  .picwall1,
+  .picwall2,
+  .picwall3 {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .picwall1>img {
+    height: 150px;
+  }
+
+  .picwall2>img {
+    height: 180px;
+  }
+
+  .picwall3>img {
+    height: 140px;
+  }
+
+  @media (max-width: 768px) {
+    .picwall1,
+    .picwall2,
+    .picwall3 {
+      flex-direction: column;
+    }
+    .picwall1>img,.picwall2>img,.picwall3>img {
+      height: auto;
+    }
+  }
+</style>
