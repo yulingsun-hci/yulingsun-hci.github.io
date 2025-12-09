@@ -58,13 +58,13 @@ body {
 
 /* 主内容区：只负责文字排版 */
 #main {
-  padding: 0;              /* 一定不要再有左右 50px 了 */
-  text-align: justify;
-  display: flex;           /* 如果你已经在用两栏布局，可以保留 flex */
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;               /* 可选：左右间距 */
+  display: flex;                   /* 让内容横向排列 */
+  justify-content: space-between;  /* 左右分散 */
+  align-items: flex-start;         /* 顶部对齐 */
+  gap: 40px;                       /* 左右间距，你可调节 */
+  padding: 0;                      /* 重要：不要左右 padding，否则会错位 */
 }
+
 /* =====================
    顶部导航栏
    ===================== */
@@ -144,6 +144,8 @@ body {
 
 #content {
   flex: 1;   /* 占据剩余空间 */
+     min-width: 0;    /* 防止内容过长撑爆布局 */
+
 }
 
 .red {
@@ -156,20 +158,13 @@ body {
   font-style: italic;
 }
 
-/* 右侧个人信息卡片 */
-/* #userInfo {
-  width: 320px;
-  /* float: right; */
-  /* display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column; */
-/* } */ 
+
 #userInfo {
   width: 320px;
+  flex-shrink: 0;   /* 不允许被压缩 */
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
 #userInfo > img {
