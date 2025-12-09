@@ -65,6 +65,16 @@ body {
   font-size: 16px;
 }
 
+ .chi-badge {
+            background-color: #0066CC; /* 蓝色背景（可根据实际调整色值） */
+            color: white; /* 白色文字 */
+            padding: 8px 16px; /* 内边距，控制大小 */
+            border-radius: 4px; /* 圆角（如果需要） */
+            font-weight: bold; /* 加粗文字 */
+            font-size: 18px; /* 字体大小 */
+            display: inline-block; /* 让元素自适应内容宽度 */
+        }
+
 
 /* 菜单栏 */
 #header {
@@ -88,6 +98,8 @@ body {
   align-items: center;
   align-items: baseline
 }
+
+
 
 #header>h1 {
   width: 200px;
