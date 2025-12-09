@@ -52,3 +52,28 @@ function toUrl(str) {
     window.open(newPath + "/cvpdf.html");
   }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.research-tab');
+  const panels = document.querySelectorAll('.research-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+
+      // 切 tab active
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // 切 panel
+      panels.forEach(panel => {
+        if (panel.getAttribute('data-tab') === target) {
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+        }
+      });
+    });
+  });
+});
+
