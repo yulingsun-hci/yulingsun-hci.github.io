@@ -33,6 +33,7 @@ li {
    ===================== */
 html {
   background-color: #f4f5f8; /* 整个页面浅灰 */
+   height:100%;
 }
 
 body {
@@ -40,6 +41,7 @@ body {
   font-size: 16px;
   background-color: #f4f5f8;
   position: relative;
+    min-height: 100%;
 }
 
 /* 中间白色内容块，宽度和 header-container 完全一致 */
@@ -49,6 +51,9 @@ body {
   margin: 0 auto;
   padding: 110px 50px 30px 50px; /* 左右 50px 与 header 一致 */
   box-sizing: border-box;
+     border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+   min-height: 100vh;   /* 新增：至少一屏高 */
 }
 
 /* 主内容区：只负责文字排版 */
