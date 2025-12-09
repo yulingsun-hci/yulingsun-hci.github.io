@@ -145,7 +145,7 @@ body {
 #content {
   flex: 1;   /* 占据剩余空间 */
      min-width: 0;    /* 防止内容过长撑爆布局 */
-
+     text-align: justify;   /* 关键 */
 }
 
 .red {
