@@ -93,10 +93,10 @@ body {
 
 /* 标题本身不要再有 margin 和多余宽度 */
 .header-container h1 {
-  margin: 0;           /* 清除浏览器默认 margin */
-  font-family: Cochin;
+  font-family: "Hiragino Sans GB", "Microsoft Yahei", tahoma, arial, sans-serif;
   font-size: 28px;
   font-weight: 700;
+  margin: 0;
 }
 
 .menu-container {
@@ -417,3 +417,5 @@ body {
     display: block;
   }
 }
+
+
