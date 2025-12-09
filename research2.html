@@ -27,62 +27,217 @@
     </div>
   </header>
   <main id="main">
+    
    <section class="research-area">
   <div class="research-wrapper">
 
     <!-- 标题 -->
     <h2 class="research-title">RESEARCH OVERVIEW</h2>
 
-    <!-- 上方标签导航 -->
+    <!-- 顶部 7 个标签 -->
     <div class="research-tabs">
-      <button class="research-tab active">#AI</button>
-      <button class="research-tab">AI-Powered Education</button>
-      <button class="research-tab">Data-driven Caregiving</button>
-      <button class="research-tab">Collaborative</button>
-      <button class="research-tab">Computing Technology</button>
+      <button class="research-tab active" data-tab="Overview">#Overview</button>
+      <button class="research-tab" data-tab="AIGC4Dementia">dementia</button>
+      <button class="research-tab" data-tab="ICT4Aging">aging</button>
+      <button class="research-tab" data-tab="AI4Healthcare">healthcare</button>
+      <button class="research-tab" data-tab="AI4Edu">education</button>
+      <button class="research-tab" data-tab="ICT4Rural">rural</button>
+      <button class="research-tab" data-tab="AI4Governance">governance</button>
     </div>
 
-    <!-- 白色卡片 -->
+    <!-- 内容卡片：包含多个 panel -->
     <div class="research-card">
-      <div class="research-card-header">
-        <h3>PROJECT: AGING WITHIN DIGITAL SOCIETY</h3>
-      </div>
 
-      <div class="research-card-body">
-        <!-- 左边文字部分 -->
-        <div class="research-card-text">
-          <!-- 彩色小标签 -->
-          <div class="research-labels">
-            <span class="badge badge-orange">#AI</span>
-            <span class="badge badge-blue">#Geronology</span>
-            <span class="badge badge-green">#Caregiving</span>
-            <span class="badge badge-purple">#SmartAging</span>
+      <!-- Panel 1: Overview -->
+      <div class="research-panel active" data-tab="Overview">
+        <div class="research-card-header">
+          <h3>PROJECT OVERVIEW: AGING WITHIN DIGITAL SOCIETY</h3>
+        </div>
+        <div class="research-card-body">
+          <div class="research-card-text">
+            <div class="research-labels">
+              <span class="badge badge-blue">#AI</span>
+              <span class="badge badge-purple">#HCI</span>
+              <span class="badge badge-green">#CSCW</span>
+            </div>
+            <p class="research-desc">
+              Summary about your overall research agenda: aging, digital society,
+              HCI/CSCW approaches, social infrastructures, and multi-stakeholder 
+              collaboration. (Replace with your actual overview)
+            </p>
+            <h4 class="research-subtitle">Selected Publications</h4>
+            <ul class="research-pubs">
+              <li>Sun et al., "Older Partners in Community Care" (CSCW 2025)</li>
+              <li>Sun et al., "AI Doctor Diary Study" (CHI 2025 submission)</li>
+            </ul>
           </div>
-
-          <p class="research-desc">
-            If ames tiour a shemsie ihal es las final sxt wnd iuciuon whiin sbimcet
-            wintresh or dia verjed bast to the are out ay as os faries whiite
-            samy a conlacts. （这里换成你自己的简介文案）
-          </p>
-
-          <h4 class="research-subtitle">Selected Publications</h4>
-          <ul class="research-pubs">
-            <li>Yuling Sun, et.</li>
-            <li>#Data-driven Caregiving</li>
-            <li>#From selection 0: Best the cred your Comined pnaet and this creatios the ut he puchenies.</li>
-            <li>⭐ <strong>Yuling Sun, etl. "Best Paper Award"</strong> …</li>
-          </ul>
-        </div>
-
-        <!-- 右边图片部分 -->
-        <div class="research-card-image">
-          <img src="img/research-thumbs.png" alt="Research thumbnails">
+          <div class="research-card-image">
+            <img src="img/research-overview.png" alt="Overview">
+          </div>
         </div>
       </div>
-    </div>
 
+      <!-- Panel 2: Dementia -->
+      <div class="research-panel" data-tab="AIGC4Dementia">
+        <div class="research-card-header">
+          <h3>AIGC for Dementia Care</h3>
+        </div>
+        <div class="research-card-body">
+          <div class="research-card-text">
+            <div class="research-labels">
+              <span class="badge badge-orange">#Dementia</span>
+              <span class="badge badge-blue">#AI</span>
+              <span class="badge badge-purple">#NPI</span>
+            </div>
+            <p class="research-desc">
+              Summary about your CHI 2024 Best Paper on technology-mediated NPI for dementia,
+              personalized needs, and multi-stakeholder collaboration.
+            </p>
+            <h4 class="research-subtitle">Selected Publications</h4>
+            <ul class="research-pubs">
+              <li>Sun et al., CHI 2024 Best Paper</li>
+            </ul>
+          </div>
+          <div class="research-card-image">
+            <img src="img/research-dementia.png" alt="Dementia AI">
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Aging -->
+      <div class="research-panel" data-tab="ICT4Aging">
+        <div class="research-card-header">
+          <h3>ICT for Aging & Later Life</h3>
+        </div>
+        <div class="research-card-body">
+          <div class="research-card-text">
+            <div class="research-labels">
+              <span class="badge badge-purple">#Aging</span>
+              <span class="badge badge-green">#Gerontechnology</span>
+            </div>
+            <p class="research-desc">
+              Work related to older adults' digital inclusion, life-review technologies,
+              companionship AI, and long-term learning (LS learning).
+            </p>
+            <h4 class="research-subtitle">Selected Publications</h4>
+            <ul class="research-pubs">
+              <li>Sun et al., "Life-Review & AI Support" (CHI/CSCW)</li>
+            </ul>
+          </div>
+          <div class="research-card-image">
+            <img src="img/research-aging.png" alt="ICT for aging">
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Healthcare -->
+      <div class="research-panel" data-tab="AI4Healthcare">
+        <div class="research-card-header">
+          <h3>AI for Healthcare & Medical Support</h3>
+        </div>
+        <div class="research-card-body">
+          <div class="research-card-text">
+            <div class="research-labels">
+              <span class="badge badge-blue">#AI</span>
+              <span class="badge badge-orange">#Healthcare</span>
+            </div>
+            <p class="research-desc">
+              Includes AI doctor diary study, LLM as longitudinal healthcare companions,
+              and patient journey design implications.
+            </p>
+            <h4 class="research-subtitle">Selected Publications</h4>
+            <ul class="research-pubs">
+              <li>Sun et al., "LLM Doctor & Patient Needs" (CHI 2025 review)</li>
+            </ul>
+          </div>
+          <div class="research-card-image">
+            <img src="img/research-health.png" alt="AI healthcare">
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 5: Education -->
+      <div class="research-panel" data-tab="AI4Edu">
+        <div class="research-card-header">
+          <h3>AI for Education & Learning Ecosystems</h3>
+        </div>
+        <div class="research-card-body">
+          <div class="research-card-text">
+            <div class="research-labels">
+              <span class="badge badge-purple">#Education</span>
+              <span class="badge badge-blue">#AI</span>
+            </div>
+            <p class="research-desc">
+              Includes AI-powered learning, children’s personalized LLM tools,
+              LS learning among retirees, and digital literacy topics.
+            </p>
+            <h4 class="research-subtitle">Selected Publications</h4>
+            <ul class="research-pubs">
+              <li>Sun et al., "AI-Powered Learning Tools" (CHI 2024/2025)</li>
+            </ul>
+          </div>
+          <div class="research-card-image">
+            <img src="img/research-edu.png" alt="AI education">
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 6: Rural -->
+      <div class="research-panel" data-tab="ICT4Rural">
+        <div class="research-card-header">
+          <h3>ICT for Rural Transformation</h3>
+        </div>
+        <div class="research-card-body">
+          <div class="research-card-text">
+            <div class="research-labels">
+              <span class="badge badge-green">#Rural</span>
+              <span class="badge badge-blue">#DigitalInclusion</span>
+            </div>
+            <p class="research-desc">
+              Research on short-video platforms, rural digital infrastructures,
+              and sociotechnical transformations.
+            </p>
+            <h4 class="research-subtitle">Selected Publications</h4>
+            <ul class="research-pubs">
+              <li>Sun et al., "Rural Digital Life & Infrastructuring" (2025)</li>
+            </ul>
+          </div>
+          <div class="research-card-image">
+            <img src="img/research-rural.png" alt="ICT rural">
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 7: Governance -->
+      <div class="research-panel" data-tab="AI4Governance">
+        <div class="research-card-header">
+          <h3>AI & Digital Governance</h3>
+        </div>
+        <div class="research-card-body">
+          <div class="research-card-text">
+            <div class="research-labels">
+              <span class="badge badge-orange">#Governance</span>
+              <span class="badge badge-blue">#AI</span>
+            </div>
+            <p class="research-desc">
+              Includes research on AI governance, digital policy, social infrastructures,
+              and multi-level public service design.
+            </p>
+            <h4 class="research-subtitle">Selected Publications</h4>
+            <ul class="research-pubs">
+              <li>Sun et al., "Governance through Digital Systems" (2025)</li>
+            </ul>
+          </div>
+          <div class="research-card-image">
+            <img src="img/research-gov.png" alt="AI governance">
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+
 <!-- Research Overview 区块结束 -->
   </main>
 </body>
