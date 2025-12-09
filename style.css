@@ -71,7 +71,7 @@ body {
             padding: 8px 16px; /* 内边距，控制大小 */
             border-radius: 4px; /* 圆角（如果需要） */
             font-weight: bold; /* 加粗文字 */
-            font-size: 18px; /* 字体大小 */
+            font-size: 16px; /* 字体大小 */
             display: inline-block; /* 让元素自适应内容宽度 */
         }
 
