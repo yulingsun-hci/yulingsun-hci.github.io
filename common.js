@@ -10,7 +10,7 @@ function changeMenu(index) {
   menuList[index].classList.add("active");
   switch (index) {
     case 0:
-      window.location.href = newPath + "/home+.html";
+      window.location.href = newPath + "/home.html";
       break;
     case 1:
       window.location.href = newPath + "/news.html";
