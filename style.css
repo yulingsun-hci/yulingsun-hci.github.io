@@ -260,7 +260,7 @@ body {
 /* 整个 Research 区块的背景 */
 .research-area {
   background-color: #f4f5f8;
-  padding: 40px 0 60px;
+  padding: 80px 0 120px;  /* ← 关键改动：让灰色背景自然延展 */
 }
 
 /* 宽度跟你 header 一致 */
