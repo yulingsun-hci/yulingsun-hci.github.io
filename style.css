@@ -435,6 +435,7 @@ body {
   #userInfo {
     width: 100% !important;
     float: none;
+       font-family: "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   }
 
   /* Research 卡片在小屏纵向排布 */
@@ -493,7 +494,11 @@ body {
   line-height: 1.6;
 }
 
-
+#header .header-container h1,
+#header .header-container h1 span {
+  font-family: Cochin, Georgia, "Times New Roman", serif !important;
+  font-weight: 700;
+}
 
 
 
