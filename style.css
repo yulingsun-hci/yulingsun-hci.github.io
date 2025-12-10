@@ -44,6 +44,8 @@ body {
   background-color: #f4f5f8;
   position: relative;
     min-height: 100%;
+   font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* 中间白色内容块，宽度和 header-container 完全一致 */
