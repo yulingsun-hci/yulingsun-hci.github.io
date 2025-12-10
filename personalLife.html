@@ -119,6 +119,10 @@
     .picwall3,
     .picwall4 {
       flex-direction: column;
+        display: flex;
+  justify-content: space-between;
+  gap: 16px;              /* 控制图片之间的间距 */
+  margin: 0 auto 10px;   /* 居中 */
     }
 
     .picwall1>img,
@@ -127,6 +131,8 @@
     .picwall4>img {
       margin-top:10px;
       height: auto;
+      object-fit: cover;
+  display: block;
     }
   }
 </style>
