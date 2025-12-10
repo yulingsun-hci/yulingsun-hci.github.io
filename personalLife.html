@@ -76,63 +76,67 @@
 
 </html>
 <style>
-  .article>p {
+  /* 正文段落：两端对齐 + 段间距 */
+  .article p {
     margin-bottom: 20px;
-     text-align: justify;
-  text-justify: inter-word;
+    text-align: justify;
+    text-justify: inter-word;
   }
 
+  /* Life 页面这里 #main 竖着排就行 */
   #main {
-  display: flex;
-  flex-direction: column;
-}
+    display: flex;
+    flex-direction: column;
+  }
 
+  /* ========= 图片墙：桌面端 ========= */
   .picwall1,
   .picwall2,
   .picwall3,
   .picwall4 {
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;  /* 左右撑开 */
+    gap: 16px;                       /* 图片之间的间距 */
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  .picwall1>img {
-    height: 320px;
+  .picwall1 img,
+  .picwall2 img,
+  .picwall3 img,
+  .picwall4 img {
+    display: block;
+    object-fit: cover;
   }
 
-  .picwall2>img {
-    height: 210px;
-  }
+  .picwall1 img { height: 320px; }
+  .picwall2 img { height: 210px; }
+  .picwall3 img { height: 180px; }
+  .picwall4 img { height: 250px; }
 
-  .picwall3>img {
-    height: 180px;
-  }
-
-  .picwall4>img {
-    height: 250px;
-  }
-
+  /* ========= 小屏：一列排版 ========= */
   @media (max-width: 768px) {
+    #main {
+      flex-direction: column;
+    }
 
     .picwall1,
     .picwall2,
     .picwall3,
     .picwall4 {
-      flex-direction: column;
-        display: flex;
-  justify-content: space-between;
-  gap: 16px;              /* 控制图片之间的间距 */
-  margin: 0 auto 10px;   /* 居中 */
+      flex-direction: column;     /* 竖着排 */
+      gap: 16px;
+      margin: 0 auto 10px;
     }
 
-    .picwall1>img,
-    .picwall2>img,
-    .picwall3>img,
-    .picwall4>img {
-      margin-top:10px;
-      height: auto;
-      object-fit: cover;
-  display: block;
+    .picwall1 img,
+    .picwall2 img,
+    .picwall3 img,
+    .picwall4 img {
+      height: auto;              /* 不固定高度，按比例缩放 */
+      width: 100%;               /* 占满行宽 */
     }
   }
 </style>
+
