@@ -32,7 +32,7 @@
   <main id="main">
     
    <section class="research-area">
-  <div class="research-wrapper">
+<div class="research-container">
 
     <!-- 标题 -->
     <h2 class="research-title">RESEARCH OVERVIEW</h2>
@@ -313,6 +313,32 @@
   .research-panel { display: none; }
   .research-panel.active { display: block; }
 
+    .research-area {
+    width: 100%;
+  }
+
+  /* Research 版心：与 header-container 对齐 */
+  .research-container {
+    max-width: 1050px;   /* ← 与 header-container 一致 */
+    margin: 0 auto;
+    padding: 0 50px;     /* ← 与 header-container 一致 */
+    box-sizing: border-box;
+  }
+
+  /* Research 内部所有模块：占满版心 */
+  .research-title,
+  .research-tabs,
+  .research-card,
+  .research-panel {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 768px) {
+    .research-container {
+      padding: 0 20px;
+    }
+  }
   
 </style>
 
