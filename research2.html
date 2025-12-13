@@ -243,81 +243,77 @@
 
 <!-- Research Overview 区块结束 -->
   </main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".research-tab");
+    const panels = document.querySelectorAll(".research-panel");
+
+    function activateTab(tabName) {
+      // tab active
+      tabs.forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabName);
+      });
+      // panel active
+      panels.forEach(panel => {
+        panel.classList.toggle("active", panel.dataset.tab === tabName);
+      });
+    }
+
+    tabs.forEach(btn => {
+      btn.addEventListener("click", () => {
+        activateTab(btn.dataset.tab);
+      });
+    });
+
+    // 初始化：如果已有 active tab，就按它显示；否则默认 Overview
+    const defaultActive = document.querySelector(".research-tab.active")?.dataset.tab || "Overview";
+    activateTab(defaultActive);
+  });
+</script>
+     
    </div>
 </body>
 
 </html>
 
 <style>
-  .main-title {
-    margin-top: 30px;
-    margin-bottom:20px;
-    flex:1;
-    font-size: 24px;
-    font-weight: 700;
-    color: #0239bd;
-    border-bottom: 3px solid #0239bd;
-    text-transform: uppercase;
-    transform: skew(-10deg);
-  }
-
-  .article>p {
-    margin-bottom: 10px;
-  }
-  .article-title{
-    margin-bottom:40px;
+  /* ===== Page-only override: make Research width match header-container ===== */
+  .research-area {
     width: 100%;
-    color:#0239bd;
-    font-size: 40px;
-    font-weight: 600;
-    text-align: center;
   }
 
-  .title {
-    margin-top: 20px;
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  /* 关键：让 research-wrapper 继承 header-container 的宽度策略 */
+  .research-area .research-wrapper{
+    max-width: inherit; /* 先清掉你原来可能写死的 max-width */
+  }
+  /* 用更稳妥的方式：直接让 research-wrapper 采用和 header-container 相同的布局规则 */
+  header .header-container,
+  .research-area .research-wrapper{
+    box-sizing: border-box;
   }
 
-  .title>p {
-    font-weight: 700;
+  /* 如果你的全站 header-container 是 max-width + auto 居中，这里用 CSS 变量方式不靠谱，
+     所以用“复制策略”：让 research-wrapper 自己也居中并使用与 header-container 一致的 padding。
+     下面 padding 数值你可以按 header 实际 padding 调整（如果 header-container 是 0 50px，就保持一致） */
+  .research-area .research-wrapper{
+    max-width: 1050px;      /* 如果你的 header-container 也是 1050px，就完全对齐 */
+    margin: 0 auto;
+    padding: 0 50px;
   }
 
-  li {
-    margin-left: 18px;
-    margin-top: 20px;
-  }
-
-  .picwall1,
-  .picwall2,
-  .picwall3 {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .picwall1>img {
-    height: 150px;
-  }
-
-  .picwall2>img {
-    height: 180px;
-  }
-
-  .picwall3>img {
-    height: 140px;
-  }
-
-  @media (max-width: 768px) {
-    .picwall1,
-    .picwall2,
-    .picwall3 {
-      flex-direction: column;
-    }
-    .picwall1>img,.picwall2>img,.picwall3>img {
-      height: auto;
+  /* 手机端一致 */
+  @media (max-width: 768px){
+    .research-area .research-wrapper{
+      padding: 0 20px;
     }
   }
+
+    /* ===== Page-only: tab panels toggle ===== */
+  .research-panel { display: none; }
+  .research-panel.active { display: block; }
+
+  
 </style>
+
+
