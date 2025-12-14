@@ -1,14 +1,175 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yuling Sun</title>
-  <link rel="icon" href="./img/homepage.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
- <script src="./common.js"></script>
+  <link rel="icon" href="./img/homepage.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="./common.js"></script>
+
+  <!-- ✅ Research page-only CSS: put it in <head> so it always works -->
+  <style>
+    /* =========================
+      Research Page ONLY
+      Goal: make research-title/tabs/card align with .header-container (Yuling Sun)
+      ========================= */
+
+    /* 防止 1px 偏差 */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    /* ✅ 关键：本页把 content-wrapper 的缩进/限宽清掉（只影响本 Research 页） */
+    .content-wrapper{
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Research 外层背景与上下间距 */
+    .research-area{
+      width: 100%;
+      background-color: #f4f5f8;
+      padding: 40px 0 60px;
+    }
+
+    /* ✅ 关键：Research 版心 = header-container（1050 + 左右 50） */
+    .research-container{
+      max-width: 1050px !important;
+      margin: 0 auto !important;
+      padding-left: 50px !important;
+      padding-right: 50px !important;
+    }
+
+    @media (max-width: 768px){
+      .research-container{
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+    }
+
+    /* 标题 */
+    .research-title{
+      font-size: 26px;
+      font-weight: 700;
+      color: #1f2a3c;
+      margin: 0 0 18px 0;
+    }
+
+    /* tabs */
+    .research-tabs{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px 0;
+    }
+
+    .research-tab{
+      appearance: none;
+      border: 1px solid #d3d7de;
+      background-color: #e8ecf2;
+      color: #3a4560;
+      font-size: 14px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .research-tab.active{
+      background-color: #1f2a3c;
+      color: #ffffff;
+      border-color: #1f2a3c;
+    }
+
+    /* 内容卡片 */
+    .research-card{
+      width: 100%;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 20px rgba(31, 42, 60, 0.08);
+    }
+
+    /* panel toggle */
+    .research-panel{ display:none; }
+    .research-panel.active{ display:block; }
+
+    .research-card-header{
+      padding: 18px 20px;
+      background: #fbfbfd;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .research-card-header h3{
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1f2a3c;
+    }
+
+    .research-card-body{
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      padding: 20px;
+    }
+    @media (max-width: 900px){
+      .research-card-body{ grid-template-columns: 1fr; }
+    }
+
+    .research-card-image{
+      display: flex;
+      justify-content: flex-end;
+    }
+    .research-card-image img{
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+      display: block;
+      height: auto;
+    }
+
+    .research-labels{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .badge{
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .badge-purple { background: rgba(123,97,255,0.12); color: #3d2cc4; }
+    .badge-green  { background: rgba(34,197,94,0.12);  color: #137a3a; }
+    .badge-blue   { background: rgba(59,130,246,0.12); color: #1d4ed8; }
+    .badge-orange { background: rgba(249,115,22,0.12); color: #b45309; }
+
+    .research-desc{
+      font-size: 14px;
+      line-height: 1.65;
+      color: #334155;
+      margin-bottom: 14px;
+    }
+    .research-subtitle{
+      font-size: 14px;
+      font-weight: 700;
+      color: #1f2a3c;
+      margin: 14px 0 8px;
+    }
+    .research-pubs{
+      padding-left: 18px;
+      margin: 0;
+      font-size: 14px;
+      color: #334155;
+    }
+    .research-pubs li{ margin: 6px 0; }
+  </style>
 </head>
 
 <body>
@@ -21,462 +182,223 @@
         <span onclick="changeMenu(2)">Publications</span>
         <span class="active" onclick="changeMenu(null)">Research</span>
         <span onclick="changeMenu(4)">Awards</span>
-       <!-- <span onclick="changeMenu(5)">Students</span> -->
+        <!-- <span onclick="changeMenu(5)">Students</span> -->
         <span onclick="changeMenu(5)">Life</span>
         <span onclick="changeMenu(6)">Contact</span>
       </div>
     </div>
   </header>
 
-   <div class="content-wrapper">
-  <main id="main">
-    
-   <section class="research-area">
-<div class="research-container">
+  <div class="content-wrapper">
+    <main id="main">
+      <section class="research-area">
+        <div class="research-container">
 
-    <!-- 标题 -->
-    <h2 class="research-title">RESEARCH OVERVIEW</h2>
+          <h2 class="research-title">RESEARCH OVERVIEW</h2>
 
-    <!-- 顶部 7 个标签 -->
-    <div class="research-tabs">
-      <button class="research-tab active" data-tab="Overview">#Overview</button>
-      <button class="research-tab" data-tab="AIGC4Dementia">AIGC4Dementia</button>
-      <button class="research-tab" data-tab="ICT4Aging">ICT4Aging</button>
-      <button class="research-tab" data-tab="AI4Healthcare">AI4Healthcare</button>
-      <button class="research-tab" data-tab="AI4Edu">AI4EDU</button>
-      <button class="research-tab" data-tab="ICT4Rural">ICT4Rural</button>
-      <button class="research-tab" data-tab="AI4Governance">AI4Governance</button>
-    </div>
+          <div class="research-tabs">
+            <button class="research-tab active" data-tab="Overview">#Overview</button>
+            <button class="research-tab" data-tab="AIGC4Dementia">AIGC4Dementia</button>
+            <button class="research-tab" data-tab="ICT4Aging">ICT4Aging</button>
+            <button class="research-tab" data-tab="AI4Healthcare">AI4Healthcare</button>
+            <button class="research-tab" data-tab="AI4Edu">AI4EDU</button>
+            <button class="research-tab" data-tab="ICT4Rural">ICT4Rural</button>
+            <button class="research-tab" data-tab="AI4Governance">AI4Governance</button>
+          </div>
 
-    <!-- 内容卡片：包含多个 panel -->
-    <div class="research-card">
+          <div class="research-card">
 
-      <!-- Panel 1: Overview -->
-      <div class="research-panel active" data-tab="Overview">
-        <div class="research-card-header">
-          <h3>PROJECT OVERVIEW: AGING WITHIN DIGITAL SOCIETY</h3>
-        </div>
-        <div class="research-card-body">
-          <div class="research-card-text">
-            <div class="research-labels">
-              <span class="badge badge-purple">#HCI</span>
-              <span class="badge badge-green">#CSCW</span>
-              <span class="badge badge-blue">#HCAI</span>
+            <div class="research-panel active" data-tab="Overview">
+              <div class="research-card-header">
+                <h3>PROJECT OVERVIEW: AGING WITHIN DIGITAL SOCIETY</h3>
+              </div>
+              <div class="research-card-body">
+                <div class="research-card-text">
+                  <div class="research-labels">
+                    <span class="badge badge-purple">#HCI</span>
+                    <span class="badge badge-green">#CSCW</span>
+                    <span class="badge badge-blue">#HCAI</span>
+                  </div>
+                </div>
+                <div class="research-card-image">
+                  <img src="img/projects/roadmap.png" alt="Overview" />
+                </div>
+              </div>
             </div>
 
-          </div>
-          <div class="research-card-image">
-            <img src="img/projects/roadmap.png" alt="Overview">
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 2: Dementia -->
-      <div class="research-panel" data-tab="AIGC4Dementia">
-        <div class="research-card-header">
-          <h3>AIGC for Dementia Care</h3>
-        </div>
-        <div class="research-card-body">
-          <div class="research-card-text">
-            <div class="research-labels">
-              <span class="badge badge-orange">#Dementia</span>
-              <span class="badge badge-blue">#AI</span>
-              <span class="badge badge-purple">#NPI</span>
+            <div class="research-panel" data-tab="AIGC4Dementia">
+              <div class="research-card-header">
+                <h3>AIGC for Dementia Care</h3>
+              </div>
+              <div class="research-card-body">
+                <div class="research-card-text">
+                  <div class="research-labels">
+                    <span class="badge badge-orange">#Dementia</span>
+                    <span class="badge badge-blue">#AI</span>
+                    <span class="badge badge-purple">#NPI</span>
+                  </div>
+                  <p class="research-desc">
+                    Summary about your CHI 2024 Best Paper on technology-mediated NPI for dementia,
+                    personalized needs, and multi-stakeholder collaboration.
+                  </p>
+                  <h4 class="research-subtitle">Selected Publications</h4>
+                  <ul class="research-pubs">
+                    <li>Sun et al., CHI 2024 Best Paper</li>
+                  </ul>
+                </div>
+                <div class="research-card-image">
+                  <img src="img/research-dementia.png" alt="Dementia AI" />
+                </div>
+              </div>
             </div>
-            <p class="research-desc">
-              Summary about your CHI 2024 Best Paper on technology-mediated NPI for dementia,
-              personalized needs, and multi-stakeholder collaboration.
-            </p>
-            <h4 class="research-subtitle">Selected Publications</h4>
-            <ul class="research-pubs">
-              <li>Sun et al., CHI 2024 Best Paper</li>
-            </ul>
-          </div>
-          <div class="research-card-image">
-            <img src="img/research-dementia.png" alt="Dementia AI">
-          </div>
-        </div>
-      </div>
 
-      <!-- Panel 3: Aging -->
-      <div class="research-panel" data-tab="ICT4Aging">
-        <div class="research-card-header">
-          <h3>ICT for Aging & Later Life</h3>
-        </div>
-        <div class="research-card-body">
-          <div class="research-card-text">
-            <div class="research-labels">
-              <span class="badge badge-purple">#Aging</span>
-              <span class="badge badge-green">#Gerontechnology</span>
+            <div class="research-panel" data-tab="ICT4Aging">
+              <div class="research-card-header">
+                <h3>ICT for Aging & Later Life</h3>
+              </div>
+              <div class="research-card-body">
+                <div class="research-card-text">
+                  <div class="research-labels">
+                    <span class="badge badge-purple">#Aging</span>
+                    <span class="badge badge-green">#Gerontechnology</span>
+                  </div>
+                  <p class="research-desc">
+                    Work related to older adults' digital inclusion, life-review technologies,
+                    companionship AI, and long-term learning (LS learning).
+                  </p>
+                  <h4 class="research-subtitle">Selected Publications</h4>
+                  <ul class="research-pubs">
+                    <li>Sun et al., "Life-Review & AI Support" (CHI/CSCW)</li>
+                  </ul>
+                </div>
+                <div class="research-card-image">
+                  <img src="img/research-aging.png" alt="ICT for aging" />
+                </div>
+              </div>
             </div>
-            <p class="research-desc">
-              Work related to older adults' digital inclusion, life-review technologies,
-              companionship AI, and long-term learning (LS learning).
-            </p>
-            <h4 class="research-subtitle">Selected Publications</h4>
-            <ul class="research-pubs">
-              <li>Sun et al., "Life-Review & AI Support" (CHI/CSCW)</li>
-            </ul>
-          </div>
-          <div class="research-card-image">
-            <img src="img/research-aging.png" alt="ICT for aging">
-          </div>
-        </div>
-      </div>
 
-      <!-- Panel 4: Healthcare -->
-      <div class="research-panel" data-tab="AI4Healthcare">
-        <div class="research-card-header">
-          <h3>AI for Healthcare & Medical Support</h3>
-        </div>
-        <div class="research-card-body">
-          <div class="research-card-text">
-            <div class="research-labels">
-              <span class="badge badge-blue">#AI</span>
-              <span class="badge badge-orange">#Healthcare</span>
+            <div class="research-panel" data-tab="AI4Healthcare">
+              <div class="research-card-header">
+                <h3>AI for Healthcare & Medical Support</h3>
+              </div>
+              <div class="research-card-body">
+                <div class="research-card-text">
+                  <div class="research-labels">
+                    <span class="badge badge-blue">#AI</span>
+                    <span class="badge badge-orange">#Healthcare</span>
+                  </div>
+                  <p class="research-desc">
+                    Includes AI doctor diary study, LLM as longitudinal healthcare companions,
+                    and patient journey design implications.
+                  </p>
+                  <h4 class="research-subtitle">Selected Publications</h4>
+                  <ul class="research-pubs">
+                    <li>Sun et al., "LLM Doctor & Patient Needs" (CHI 2025 review)</li>
+                  </ul>
+                </div>
+                <div class="research-card-image">
+                  <img src="img/research-health.png" alt="AI healthcare" />
+                </div>
+              </div>
             </div>
-            <p class="research-desc">
-              Includes AI doctor diary study, LLM as longitudinal healthcare companions,
-              and patient journey design implications.
-            </p>
-            <h4 class="research-subtitle">Selected Publications</h4>
-            <ul class="research-pubs">
-              <li>Sun et al., "LLM Doctor & Patient Needs" (CHI 2025 review)</li>
-            </ul>
-          </div>
-          <div class="research-card-image">
-            <img src="img/research-health.png" alt="AI healthcare">
-          </div>
-        </div>
-      </div>
 
-      <!-- Panel 5: Education -->
-      <div class="research-panel" data-tab="AI4Edu">
-        <div class="research-card-header">
-          <h3>AI for Education & Learning Ecosystems</h3>
-        </div>
-        <div class="research-card-body">
-          <div class="research-card-text">
-            <div class="research-labels">
-              <span class="badge badge-purple">#Education</span>
-              <span class="badge badge-blue">#AI</span>
+            <div class="research-panel" data-tab="AI4Edu">
+              <div class="research-card-header">
+                <h3>AI for Education & Learning Ecosystems</h3>
+              </div>
+              <div class="research-card-body">
+                <div class="research-card-text">
+                  <div class="research-labels">
+                    <span class="badge badge-purple">#Education</span>
+                    <span class="badge badge-blue">#AI</span>
+                  </div>
+                  <p class="research-desc">
+                    Includes AI-powered learning, children’s personalized LLM tools,
+                    LS learning among retirees, and digital literacy topics.
+                  </p>
+                  <h4 class="research-subtitle">Selected Publications</h4>
+                  <ul class="research-pubs">
+                    <li>Sun et al., "AI-Powered Learning Tools" (CHI 2024/2025)</li>
+                  </ul>
+                </div>
+                <div class="research-card-image">
+                  <img src="img/research-edu.png" alt="AI education" />
+                </div>
+              </div>
             </div>
-            <p class="research-desc">
-              Includes AI-powered learning, children’s personalized LLM tools,
-              LS learning among retirees, and digital literacy topics.
-            </p>
-            <h4 class="research-subtitle">Selected Publications</h4>
-            <ul class="research-pubs">
-              <li>Sun et al., "AI-Powered Learning Tools" (CHI 2024/2025)</li>
-            </ul>
-          </div>
-          <div class="research-card-image">
-            <img src="img/research-edu.png" alt="AI education">
-          </div>
-        </div>
-      </div>
 
-      <!-- Panel 6: Rural -->
-      <div class="research-panel" data-tab="ICT4Rural">
-        <div class="research-card-header">
-          <h3>ICT for Rural Transformation</h3>
-        </div>
-        <div class="research-card-body">
-          <div class="research-card-text">
-            <div class="research-labels">
-              <span class="badge badge-green">#Rural</span>
-              <span class="badge badge-blue">#DigitalInclusion</span>
+            <div class="research-panel" data-tab="ICT4Rural">
+              <div class="research-card-header">
+                <h3>ICT for Rural Transformation</h3>
+              </div>
+              <div class="research-card-body">
+                <div class="research-card-text">
+                  <div class="research-labels">
+                    <span class="badge badge-green">#Rural</span>
+                    <span class="badge badge-blue">#DigitalInclusion</span>
+                  </div>
+                  <p class="research-desc">
+                    Research on short-video platforms, rural digital infrastructures,
+                    and sociotechnical transformations.
+                  </p>
+                  <h4 class="research-subtitle">Selected Publications</h4>
+                  <ul class="research-pubs">
+                    <li>Sun et al., "Rural Digital Life & Infrastructuring" (2025)</li>
+                  </ul>
+                </div>
+                <div class="research-card-image">
+                  <img src="img/research-rural.png" alt="ICT rural" />
+                </div>
+              </div>
             </div>
-            <p class="research-desc">
-              Research on short-video platforms, rural digital infrastructures,
-              and sociotechnical transformations.
-            </p>
-            <h4 class="research-subtitle">Selected Publications</h4>
-            <ul class="research-pubs">
-              <li>Sun et al., "Rural Digital Life & Infrastructuring" (2025)</li>
-            </ul>
-          </div>
-          <div class="research-card-image">
-            <img src="img/research-rural.png" alt="ICT rural">
-          </div>
-        </div>
-      </div>
 
-      <!-- Panel 7: Governance -->
-      <div class="research-panel" data-tab="AI4Governance">
-        <div class="research-card-header">
-          <h3>AI & Digital Governance</h3>
-        </div>
-        <div class="research-card-body">
-          <div class="research-card-text">
-            <div class="research-labels">
-              <span class="badge badge-orange">#Governance</span>
-              <span class="badge badge-blue">#AI</span>
+            <div class="research-panel" data-tab="AI4Governance">
+              <div class="research-card-header">
+                <h3>AI & Digital Governance</h3>
+              </div>
+              <div class="research-card-body">
+                <div class="research-card-text">
+                  <div class="research-labels">
+                    <span class="badge badge-orange">#Governance</span>
+                    <span class="badge badge-blue">#AI</span>
+                  </div>
+                  <p class="research-desc">
+                    Includes research on AI governance, digital policy, social infrastructures,
+                    and multi-level public service design.
+                  </p>
+                  <h4 class="research-subtitle">Selected Publications</h4>
+                  <ul class="research-pubs">
+                    <li>Sun et al., "Governance through Digital Systems" (2025)</li>
+                  </ul>
+                </div>
+                <div class="research-card-image">
+                  <img src="img/research-gov.png" alt="AI governance" />
+                </div>
+              </div>
             </div>
-            <p class="research-desc">
-              Includes research on AI governance, digital policy, social infrastructures,
-              and multi-level public service design.
-            </p>
-            <h4 class="research-subtitle">Selected Publications</h4>
-            <ul class="research-pubs">
-              <li>Sun et al., "Governance through Digital Systems" (2025)</li>
-            </ul>
-          </div>
-          <div class="research-card-image">
-            <img src="img/research-gov.png" alt="AI governance">
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
-</section>
+          </div><!-- /.research-card -->
 
-<!-- Research Overview 区块结束 -->
-  </main>
+        </div><!-- /.research-container -->
+      </section>
+    </main>
+  </div><!-- /.content-wrapper -->
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll(".research-tab");
-    const panels = document.querySelectorAll(".research-panel");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabs = document.querySelectorAll(".research-tab");
+      const panels = document.querySelectorAll(".research-panel");
 
-    function activateTab(tabName) {
-      // tab active
-      tabs.forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.tab === tabName);
-      });
-      // panel active
-      panels.forEach(panel => {
-        panel.classList.toggle("active", panel.dataset.tab === tabName);
-      });
-    }
+      function activateTab(tabName) {
+        tabs.forEach(btn => btn.classList.toggle("active", btn.dataset.tab === tabName));
+        panels.forEach(panel => panel.classList.toggle("active", panel.dataset.tab === tabName));
+      }
 
-    tabs.forEach(btn => {
-      btn.addEventListener("click", () => {
-        activateTab(btn.dataset.tab);
-      });
+      tabs.forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab)));
+
+      const defaultActive = document.querySelector(".research-tab.active")?.dataset.tab || "Overview";
+      activateTab(defaultActive);
     });
-
-    // 初始化：如果已有 active tab，就按它显示；否则默认 Overview
-    const defaultActive = document.querySelector(".research-tab.active")?.dataset.tab || "Overview";
-    activateTab(defaultActive);
-  });
-</script>
-     
-   </div>
-  
+  </script>
 </body>
-
 </html>
-
-<style>
- /* =========================
-   Research Page (Page-only CSS)
-   Width strictly aligned with .header-container
-   ========================= */
-
-/* 统一 box model，避免 1px 偏差 */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* ===== 1. Research 外层：只管背景和上下间距 ===== */
-.research-area {
-  width: 100%;
-  background-color: #f4f5f8;
-  padding: 40px 0 60px; /* 上下间距，可自行微调 */
-}
-
-/* ===== 2. Research 版心：与 header-container 完全一致 ===== */
-.research-container {
-  max-width: 1050px;     /* ← 与 header-container 一致 */
-  margin: 0 auto;
-  padding: 0 50px;       /* ← 左右 50px，与 header-container 对齐 */
-}
-
-/* 移动端：与你 header 的响应式保持一致 */
-@media (max-width: 768px) {
-  .research-container {
-    padding: 0 20px;
-  }
-}
-
-/* ===== 3. 标题 ===== */
-.research-title {
-  font-size: 26px;
-  font-weight: 700;
-  color: #1f2a3c;
-  margin: 0 0 18px 0;
-}
-
-/* ===== 4. Tabs ===== */
-.research-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 18px 0;
-}
-
-.research-tab {
-  appearance: none;
-  border: 1px solid #d3d7de;
-  background-color: #e8ecf2;
-  color: #3a4560;
-  font-size: 14px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.research-tab.active {
-  background-color: #1f2a3c;
-  color: #ffffff;
-  border-color: #1f2a3c;
-}
-
-/* ===== 5. 内容卡片 ===== */
-.research-card {
-  width: 100%;
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 8px 20px rgba(31, 42, 60, 0.08);
-}
-
-/* ===== 6. Panel 切换逻辑 ===== */
-.research-panel {
-  display: none;
-}
-.research-panel.active {
-  display: block;
-}
-
-/* ===== 7. Card Header ===== */
-.research-card-header {
-  padding: 18px 20px;
-  background: #fbfbfd;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.research-card-header h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #1f2a3c;
-}
-
-/* ===== 8. Card Body（文字 + 图片） ===== */
-.research-card-body {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 20px;
-  padding: 20px;
-}
-
-@media (max-width: 900px) {
-  .research-card-body {
-    grid-template-columns: 1fr;
-  }
-}
-
-.research-card-text {
-  min-width: 0;
-}
-
-.research-card-image {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.research-card-image img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.06);
-  display: block;
-}
-
-/* ===== 9. 标签 ===== */
-.research-labels {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.badge {
-  padding: 6px 10px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.08);
-}
-
-.badge-purple { background: rgba(123,97,255,0.12); color: #3d2cc4; }
-.badge-green  { background: rgba(34,197,94,0.12);  color: #137a3a; }
-.badge-blue   { background: rgba(59,130,246,0.12); color: #1d4ed8; }
-.badge-orange { background: rgba(249,115,22,0.12); color: #b45309; }
-
-/* ===== 10. 文本 ===== */
-.research-desc {
-  font-size: 14px;
-  line-height: 1.65;
-  color: #334155;
-  margin-bottom: 14px;
-}
-
-.research-subtitle {
-  font-size: 14px;
-  font-weight: 700;
-  color: #1f2a3c;
-  margin: 14px 0 8px;
-}
-
-.research-pubs {
-  padding-left: 18px;
-  margin: 0;
-  font-size: 14px;
-  color: #334155;
-}
-
-.research-pubs li {
-  margin: 6px 0;
-}
-
-  /* =========================
-   Research page only fix:
-   Make RESEARCH OVERVIEW align with header-container (Yuling Sun)
-   ========================= */
-
-/* 1) 抵消 content-wrapper 可能带来的左右缩进：只作用于 Research 区块 */
-.content-wrapper .research-area {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* 2) Research 自己建立与 header-container 同款版心 */
-.content-wrapper .research-area .research-container {
-  max-width: 1050px;      /* 与 .header-container 一致 */
-  margin: 0 auto;
-  padding-left: 50px;     /* 与 .header-container 一致 */
-  padding-right: 50px;
-  box-sizing: border-box;
-}
-
-/* 3) 移动端同款（如果你的 header 也是 20px） */
-@media (max-width: 768px) {
-  .content-wrapper .research-area .research-container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-
-</style>
-
-
