@@ -169,6 +169,19 @@
       color: #334155;
     }
     .research-pubs li{ margin: 6px 0; }
+    /* Fix: prevent layout shift caused by scrollbar */
+html { overflow-y: scroll; }
+    
+    /* Fix: force show the title even if global CSS hides h2 */
+.research-title{
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  font-size: 26px !important;
+  color: #1f2a3c !important;
+  margin: 0 0 18px 0 !important;
+}
   </style>
 </head>
 
