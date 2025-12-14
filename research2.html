@@ -448,6 +448,34 @@
   margin: 6px 0;
 }
 
+  /* =========================
+   Research page only fix:
+   Make RESEARCH OVERVIEW align with header-container (Yuling Sun)
+   ========================= */
+
+/* 1) 抵消 content-wrapper 可能带来的左右缩进：只作用于 Research 区块 */
+.content-wrapper .research-area {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 2) Research 自己建立与 header-container 同款版心 */
+.content-wrapper .research-area .research-container {
+  max-width: 1050px;      /* 与 .header-container 一致 */
+  margin: 0 auto;
+  padding-left: 50px;     /* 与 .header-container 一致 */
+  padding-right: 50px;
+  box-sizing: border-box;
+}
+
+/* 3) 移动端同款（如果你的 header 也是 20px） */
+@media (max-width: 768px) {
+  .content-wrapper .research-area .research-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 
 </style>
 
