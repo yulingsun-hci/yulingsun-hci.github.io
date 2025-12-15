@@ -21,32 +21,30 @@
   #content{ flex: 1 1 auto; min-width: 0; }
   #userInfo{ flex: 0 0 280px; max-width: 320px; }
 
-  /* ===== Mobile: userInfo on top, content below, full width ===== */
-  @media (max-width: 768px){
+/* ===== Mobile: userInfo on top, content below, full width (icons truly centered) ===== */
+@media (max-width: 768px){
 
-  /* ===== 主布局纵向 ===== */
+  /* 主布局纵向 */
   #main{
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
-  /* ===== userInfo 在最上方，宽度铺满并整体居中 ===== */
+  /* userInfo 在最上方，整体居中 */
   #userInfo{
     display: block !important;
     order: 1;
     width: 100%;
     max-width: 100%;
     flex: none;
-
-    /* 文本与内部元素居中 */
     text-align: center;
 
-    /* 清除可能的旧布局 */
+    /* 清除旧布局 */
     float: none !important;
   }
 
-  /* ===== 头像居中 ===== */
+  /* 头像居中 */
   #userInfo img{
     display: block;
     margin: 0 auto;
@@ -55,7 +53,7 @@
     float: none !important;
   }
 
-  /* ===== icon 行：强制居中（处理 float / 全站覆盖） ===== */
+  /* ✅ icon 行：彻底解除 float/固定宽度，强制居中 */
   #userInfo .icon-box{
     display: flex !important;
     justify-content: center !important;
@@ -64,17 +62,21 @@
     gap: 10px;
     margin-top: 10px;
 
+    /* 🔑 关键：清除全站 legacy 样式 */
     float: none !important;
-    text-align: center;
+    width: auto !important;
+    text-align: center !important;
   }
 
+  /* ✅ icon 本身也一起清理（你用的是 img.icon） */
+  #userInfo .icon-box img,
   #userInfo .icon-box .icon{
-    display: inline-flex;
-    margin: 0;
     float: none !important;
+    display: inline-flex !important;
+    margin: 0 !important;
   }
 
-  /* ===== content 在 userInfo 下方，宽度铺满 ===== */
+  /* content 在 userInfo 下方，宽度铺满 */
   #content{
     order: 2;
     width: 100%;
