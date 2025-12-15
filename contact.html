@@ -84,13 +84,27 @@
     margin: 0 auto;
     }
 
-    #userInfo .icon-box{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-          justify-content: center;
-    }
+@media (max-width: 768px){
+  #userInfo .icon-box{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+
+    /* 🔑 关键：清除旧布局影响 */
+    float: none !important;
+    text-align: center;
+  }
+
+  #userInfo .icon-box .icon{
+    float: none !important;          /* 防止 float 抢布局 */
+    display: inline-flex;
+    margin: 0;                       /* 去掉可能的左边距 */
+  }
+}
+
   }
 </style>
 
