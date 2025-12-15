@@ -47,62 +47,62 @@
     max-width: 320px;
   }
 
-  /* ===== Mobile: userInfo on top, centered; content below ===== */
-  @media (max-width: 768px){
-    #main{
-      flex-direction: column;
-      gap: 16px;
-    }
+ /* ===== Mobile: userInfo on top, icons REALLY centered ===== */
+@media (max-width: 768px){
 
-    #userInfo{
-      display: block !important;
-      order: 1;
-      width: 100%;
-      max-width: 100%;
-      flex: none;
-      text-align: center;
-      float: none !important;
-    }
-
-    #content{
-      order: 2;
-      width: 100%;
-      max-width: 100%;
-      flex: none;
-    }
-
-    /* 手机上第一段标题上方空白缩小 */
-    #content .title[style*="margin-top:50px"]{
-      margin-top: 18px !important;
-    }
-
-    /* 头像居中 */
-    #userInfo img{
-      display: block;
-      margin: 0 auto;
-      max-width: 120px;
-      height: auto;
-      float: none !important;
-    }
-
-    /* icon 行强制居中（处理 float/全站覆盖） */
-    #userInfo .icon-box{
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-      float: none !important;
-      text-align: center;
-    }
-
-    #userInfo .icon-box .icon{
-      float: none !important;
-      display: inline-flex;
-      margin: 0;
-    }
+  #main{
+    flex-direction: column;
+    gap: 16px;
   }
+
+  #userInfo{
+    display: block !important;
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    text-align: center;
+  }
+
+  #content{
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+
+  /* 头像居中 */
+  #userInfo img{
+    display: block;
+    margin: 0 auto;
+    max-width: 120px;
+    height: auto;
+    float: none !important;
+  }
+
+  /* 🔑 核心修复：彻底解除 icon-box 的旧布局方式 */
+  #userInfo .icon-box{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+
+    /* 清除全站 legacy 样式 */
+    float: none !important;
+    width: auto !important;
+    text-align: center !important;
+  }
+
+  /* 🔑 第二刀：把 icon 自身的 float / margin 清掉 */
+  #userInfo .icon-box img,
+  #userInfo .icon-box .icon{
+    float: none !important;
+    display: inline-flex !important;
+    margin: 0 !important;
+  }
+}
+
 </style>
 
 
