@@ -41,6 +41,36 @@
       padding-right: 50px !important;
     }
 
+    .overview-body{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* 图片容器：居中 */
+.overview-image{
+  display: flex;
+  justify-content: center;
+}
+
+/* 图片：宽度自适应 panel */
+.overview-image img{
+  width: 100%;
+  max-width: 100%;     /* 不超过 panel */
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* 图片下方说明文字 */
+.overview-desc{
+  font-size: 14px;
+  line-height: 1.7;
+  color: #334155;
+  margin: 0;
+  text-align: left;
+}
+
     @media (max-width: 768px){
       .research-container{
         padding-left: 20px !important;
@@ -259,23 +289,40 @@ main {
 
           <div class="research-card">
 
-            <div class="research-panel active" data-tab="Overview">
-              <div class="research-card-header">
-                <h3>PROJECT OVERVIEW: AGING WITHIN DIGITAL SOCIETY</h3>
-              </div>
-              <div class="research-card-body">
-                <div class="research-card-text">
-                  <div class="research-labels">
-                    <span class="badge badge-purple">#HCI</span>
-                    <span class="badge badge-green">#CSCW</span>
-                    <span class="badge badge-blue">#HCAI</span>
-                  </div>
-                </div>
-                <div class="research-card-image">
-                  <img src="img/projects/roadmap.png" alt="Overview" />
-                </div>
-              </div>
-            </div>
+<div class="research-panel active overview-panel" data-tab="Overview">
+  <div class="research-card-header">
+    <h3>PROJECT OVERVIEW: AGING WITHIN DIGITAL SOCIETY</h3>
+  </div>
+
+  <div class="research-card-body overview-body">
+
+    <!-- 标签 -->
+    <div class="research-card-text">
+      <div class="research-labels">
+        <span class="badge badge-purple">#HCI</span>
+        <span class="badge badge-green">#CSCW</span>
+        <span class="badge badge-green">#Social Computing</span>
+        <span class="badge badge-green">#Human-Computer Interaction</span>
+      </div>
+    </div>
+
+    <!-- 图片：居中 + 自适应 -->
+    <div class="research-card-image overview-image">
+      <img src="img/projects/roadmap.png" alt="Overview" />
+    </div>
+
+    <!-- 图片下方说明文字 -->
+    <p class="overview-desc">
+      This roadmap illustrates my research agenda at the intersection of HCI,
+      CSCW, and social computing, with a particular focus on aging, healthcare,
+      education, governance, and rural digital infrastructures. The work is
+      organized around long-term socio-technical engagements and
+      infrastructure-oriented perspectives.
+    </p>
+
+  </div>
+</div>
+
 
             <div class="research-panel" data-tab="AIGC4Dementia">
               <div class="research-card-header">
