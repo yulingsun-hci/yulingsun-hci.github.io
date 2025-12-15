@@ -60,6 +60,8 @@
       width: 100%;
       max-width: 100%;
       flex: none;
+        text-align: center;          /* 文字居中 */
+    align-items: center;         /* 防止内部 flex 影响 */
     }
 
     #content{
@@ -78,6 +80,8 @@
     #userInfo img{
       max-width: 120px;
       height: auto;
+          display: block;
+    margin: 0 auto;
     }
 
     #userInfo .icon-box{
@@ -85,6 +89,7 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 10px;
+          justify-content: center;
     }
   }
 </style>
