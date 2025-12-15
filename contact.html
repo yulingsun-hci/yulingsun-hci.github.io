@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-  /* ===== Original styles ===== */
+  /* ✅ Fix page shift caused by scrollbar appearing/disappearing */
+  html { overflow-y: scroll; }
+
   .title {
     margin-top: 30px;
     position: relative;
@@ -19,7 +21,6 @@
   }
 
   .to-email { cursor: pointer; }
-
   .title > p { font-weight: 700; }
 
   .title > img {
@@ -46,22 +47,21 @@
     max-width: 320px;
   }
 
-  /* ===== Mobile: userInfo on top, content below, full width ===== */
+  /* ===== Mobile: userInfo on top, centered; content below ===== */
   @media (max-width: 768px){
     #main{
       flex-direction: column;
       gap: 16px;
     }
 
-    /* 强制显示 userInfo，避免全站 CSS 在手机隐藏它 */
     #userInfo{
       display: block !important;
       order: 1;
       width: 100%;
       max-width: 100%;
       flex: none;
-        text-align: center;          /* 文字居中 */
-    align-items: center;         /* 防止内部 flex 影响 */
+      text-align: center;
+      float: none !important;
     }
 
     #content{
@@ -71,42 +71,40 @@
       flex: none;
     }
 
-    /* 手机上标题上方空白缩小一点（你 content 里 margin-top:50px） */
+    /* 手机上第一段标题上方空白缩小 */
     #content .title[style*="margin-top:50px"]{
       margin-top: 18px !important;
     }
 
-    /* userInfo 图片与图标更适配手机 */
+    /* 头像居中 */
     #userInfo img{
+      display: block;
+      margin: 0 auto;
       max-width: 120px;
       height: auto;
-          display: block;
-    margin: 0 auto;
+      float: none !important;
     }
 
-@media (max-width: 768px){
-  #userInfo .icon-box{
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
+    /* icon 行强制居中（处理 float/全站覆盖） */
+    #userInfo .icon-box{
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      float: none !important;
+      text-align: center;
+    }
 
-    /* 🔑 关键：清除旧布局影响 */
-    float: none !important;
-    text-align: center;
-  }
-
-  #userInfo .icon-box .icon{
-    float: none !important;          /* 防止 float 抢布局 */
-    display: inline-flex;
-    margin: 0;                       /* 去掉可能的左边距 */
-  }
-}
-
+    #userInfo .icon-box .icon{
+      float: none !important;
+      display: inline-flex;
+      margin: 0;
+    }
   }
 </style>
+
 
   <script src="./common.js"></script>
 </head>
