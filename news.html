@@ -7,6 +7,99 @@
   <title>Yuling Sun</title>
   <link rel="icon" href="./img/homepage.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+
+/* ===== Titles & lists ===== */
+.title {
+  margin-top: 40px;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title > p {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+}
+
+.title > img {
+  margin-right: 10px;
+  width: 30px;
+}
+
+li {
+  margin-left: 18px;
+  margin-top: 10px;
+}
+
+/* ===== Desktop layout (keep as-is) ===== */
+#main {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+#content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#userInfo {
+  flex: 0 0 280px;
+  max-width: 320px;
+}
+
+/* ===== Mobile layout: userInfo on top, content below ===== */
+@media (max-width: 768px) {
+
+  /* 主布局纵向 */
+  #main {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* userInfo 在最上方，宽度铺满 */
+  #userInfo {
+    display: block !important;
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+
+    /* 🔑 关键：居中显示 */
+    text-align: center;
+  }
+
+  /* 头像居中 */
+  #userInfo img {
+    display: block;
+    margin: 0 auto;
+    max-width: 120px;
+    height: auto;
+  }
+
+  /* icon 行居中 */
+  #userInfo .icon-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  /* content 在 userInfo 下方，宽度铺满 */
+  #content {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+}
+
+  
  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
  <script src="./common.js"></script>
 </head>
@@ -87,75 +180,4 @@
 
 
 </html>
-<style>
-  .title {
-    margin-top: 40px;
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
 
-  .title>p {
-    flex:1;
-    font-size: 24px;
-    font-weight: 700;
-    color: #333;
-    border-bottom: 2px solid #ccc;
-  }
-
-  .title>img {
-    margin-right: 10px;
-    width: 30px;
-  }
-
-  li {
-    margin-left: 18px;
-    margin-top: 10px;
-  }
-
-  /* ===== Mobile layout: userInfo on top, content below ===== */
-@media (max-width: 768px) {
-  /* 主布局改为纵向 */
-  #main {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  /* userInfo 显示在最上面 */
-  #userInfo {
-    display: block !important;
-    order: 1;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* content 在 userInfo 下面 */
-  #content {
-    order: 2;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* 防止桌面侧栏宽度在手机生效 */
-  #userInfo,
-  #content {
-    flex: none;
-  }
-
-  /* userInfo 图片与图标在手机更友好 */
-  #userInfo img {
-    max-width: 120px;
-    height: auto;
-  }
-
-  #userInfo .icon-box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-  }
-}
-
-</style>
