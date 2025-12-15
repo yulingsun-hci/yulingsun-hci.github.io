@@ -113,4 +113,19 @@
     margin-left: 18px;
     margin-top: 10px;
   }
+
+  @media (max-width: 768px) {
+  #userInfo {
+    display: none !important;
+  }
+
+  #main {
+    display: block;     /* 防止 flex 布局留下空位 */
+  }
+
+  #content {
+    width: 100%;
+    max-width: 100%;
+  }
+}
 </style>
