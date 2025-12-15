@@ -89,12 +89,17 @@
       margin-top: 10px;
     }
 
-      #content.home p[style*="font-size: 36px"],
-  #content.home p[style*="font-size: 34px"]{
-    font-size: 16px !important;   /* 或 15px / 17px，看你正文大小 */
-    font-weight: 400 !important;  /* 和正文一致 */
-    line-height: 1.8 !important;
-  }
+
+/* 移动端：标题句与正文同字号，但保持加粗，行距更紧 */
+#content.home p[style*="font-size: 36px"],
+#content.home p[style*="font-size: 34px"]{
+  font-size: 20px !important;     /* 与正文一致 */
+  font-weight: 700 !important;    /* ✅ 加粗显示 */
+  line-height: 1.5 !important;   /* ✅ 行距收紧（推荐 1.3–1.4） */
+  margin-bottom: 8px !important;  /* 可选：减少段落下方空白 */
+}
+
+    
   }
 </style>
 
