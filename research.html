@@ -145,6 +145,39 @@
       gap: 20px;
       padding: 20px;
     }
+
+    /* ===== Overview panel: stack layout (labels -> image -> text) ===== */
+.research-panel[data-tab="Overview"] .research-card-body.overview-stack{
+  display: block !important;      /* 覆盖原来的 grid 双列 */
+  padding: 20px;
+}
+
+.research-panel[data-tab="Overview"] .research-labels{
+  margin-bottom: 14px;
+}
+
+/* 图片区域：占满 card body 宽度 + 居中 */
+.research-panel[data-tab="Overview"] .overview-image{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 6px 0 14px 0;
+}
+
+.research-panel[data-tab="Overview"] .overview-image img{
+  width: 100% !important;        /* 满宽 */
+  max-width: 100% !important;    /* 不要限制 420px */
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* 文字同宽（自然就是 100%） */
+.research-panel[data-tab="Overview"] .overview-text{
+  width: 100%;
+}
+
     @media (max-width: 900px){
       .research-card-body{ grid-template-columns: 1fr; }
     }
@@ -289,41 +322,50 @@ main {
 
           <div class="research-card">
 
-<div class="research-panel active overview-panel" data-tab="Overview">
+<div class="research-panel active" data-tab="Overview">
   <div class="research-card-header">
-    <h3>PROJECT OVERVIEW: AGING WITHIN DIGITAL SOCIETY</h3>
+    <h3>PROJECT OVERVIEW</h3>
   </div>
 
-  <div class="research-card-body overview-body">
-
-    <!-- 标签 -->
-    <div class="research-card-text">
-      <div class="research-labels">
-        <span class="badge badge-purple">#HCI</span>
-        <span class="badge badge-green">#CSCW</span>
-        <span class="badge badge-green">#Social Computing</span>
-        <span class="badge badge-green">#Human-Computer Interaction</span>
-      </div>
+  <div class="research-card-body overview-stack">
+    <!-- 标签行 -->
+    <div class="research-labels">
+      <span class="badge badge-purple">#HCI</span>
+      <span class="badge badge-green">#CSCW</span>
+      <span class="badge badge-blue">#Social Computing</span>
+      <span class="badge badge-orange">#Human-Computer Interaction</span>
     </div>
 
-    <!-- 图片：居中 + 自适应 -->
+    <!-- 图片：满宽居中 -->
     <div class="research-card-image overview-image">
       <img src="img/projects/roadmap.png" alt="Overview" />
     </div>
 
-    <!-- 图片下方说明文字 -->
-    <p class="overview-desc">
+    <!-- 文字：在下方，满宽 -->
+    <div class="research-card-text overview-text">
+      <p class="research-desc">
+        My research lies in
+  <strong>Human-computer/AI Interaction (HCI/HAI)</strong>,
+  <strong>Computer Supported Collaborative Work (CSCW)</strong>,
+  and <strong>Social Computing</strong>,
+  with primary focuses on issues of
+  <strong>healthcare and aging</strong>,
+  <strong>education</strong>, and
+  <strong>rural revitalization</strong>.
+      </p>
 
-My research lies in Human-computer/AI Interaction (HCI/HAI), Computer Supported Collaborative Work (CSCW), Social Computing, and Human-Centered Computing (HCC), 
-      with primary focuses on issues of healthcare and aging, education, rural revitalization, and how ICTs and AI technologies can be more effectively designed and deployed to support these issues. 
-      As computing and AI technologies are increasingly woven into the fabric of everyday lives, I am dedicated to deeply analyzing and understanding the needs of different roles in society, 
-      as well as the roles, practices, and impacts of technologies in people's daily work and lives.
-      Drawing on interdisciplinary perspectives from social science, psychology, and computer science, my work aims to inform human-centered intelligent technology design, 
-      guiding the development of more accessible, responsible, accountable, and equitable intelligent ecosystems, and ultimately fostering more harmonious coexistence between humans and intelligent systems.
-    </p>
-
+      <p class="research-desc">
+        As computing and AI technologies are increasingly woven into the fabric of everyday lives, I am dedicated to
+        deeply analyzing and understanding the needs of different roles in society, as well as the roles, practices,
+        and the impacts of technologies on people's daily work and lives. Drawing on interdisciplinary perspectives from
+        social science, psychology, and computer science, my work aims to inform human-centered intelligent technology
+        design, guiding the development of more approachable, human-centric, accountable, and equitable intelligent
+        ecosystems, and ultimately fostering more harmonious coexistence between humans and intelligent systems.
+      </p>
+    </div>
   </div>
 </div>
+
 
 
             <div class="research-panel" data-tab="AIGC4Dementia">
