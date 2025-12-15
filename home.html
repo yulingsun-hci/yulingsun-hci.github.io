@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +7,71 @@
   <link rel="icon" href="./img/homepage.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
   <script src="./common.js"></script>
+
+  <style>
+    /* ===== Page-only layout fixes (Home page) ===== */
+
+    /* 1) 统一：section 内文字行高 */
+    .home > p { line-height: 2; }
+
+    /* 2) 主内容区布局：桌面默认 content + userInfo 并排 */
+    #main{
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    /* content / userInfo 的基础占比（桌面） */
+    #content.home{
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    #userInfo{
+      flex: 0 0 280px;   /* 桌面侧边栏宽度，可按你喜好调 */
+      max-width: 320px;
+    }
+
+    /* 3) hiring-info：永远在 main 下面，且和 content-wrapper 同宽 */
+    #hiring-info{
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 18px;
+    }
+
+    /* 4) 移动端：userInfo 在上，content 在下，然后 hiring-info */
+    @media (max-width: 768px){
+      /* 让 main 纵向堆叠 */
+      #main{
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      /* 改变顺序：userInfo -> content */
+      #userInfo{ order: 1; }
+      #content.home{ order: 2; }
+
+      /* 宽度自适配手机 */
+      #userInfo,
+      #content.home,
+      #hiring-info{
+        width: 100%;
+        max-width: 100%;
+      }
+
+      /* 避免你 content 里写死 padding-top:80px 在手机太空 */
+      #content.home p[style*="padding-top: 80px"]{
+        padding-top: 24px !important;
+      }
+
+      /* userInfo 图片在手机更友好一点（可选） */
+      #userInfo img{
+        max-width: 120px;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -30,24 +92,41 @@
       </div>
     </header>
 
-    <!-- ⭐ 白色内容区域：宽度和 header 完全一致 -->
+    <!-- 白色内容区域：宽度和 header 一致（由你全站 style.css 控制） -->
     <div class="content-wrapper">
       <main id="main">
-      
 
+        <!-- ✅ 1) userInfo（移动端会排到最上面） -->
+        <section id="userInfo">
+          <img src="./img/homepage.png" alt="profile">
+          <p class="username" onclick="toUrl(0)">Yuling Sun</p>
+          <p>Professor</p>
+          <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>
+          <div class="icon-box">
+            <img class="icon" src="./img/icon/icon1.jpg" onclick="toUrl(1)" alt="icon1">
+            <img class="icon" src="./img/icon/icon2.jpg" alt="icon2">
+            <img class="icon" src="./img/icon/icon3.jpg" onclick="toUrl(2)" alt="icon3">
+            <img class="icon" src="./img/icon/icon4.jpg" onclick="toUrl(3)" alt="icon4">
+          </div>
+        </section>
+
+        <!-- ✅ 2) content（移动端排在 userInfo 下） -->
         <section id="content" class="home">
-  <p style="font-size: 34px; font-weight: 700; margin-bottom: 20px;">
+          <p style="font-size: 34px; font-weight: 700; margin-bottom: 20px;"></p>
+          <br>
 
-</p> <br>
-          <p style="font-size: 36px; font-weight: 700; margin-bottom: 10px;padding-top: 80px;line-height: 1.8;">
-  Hey! 你好呀 ☺
-</p>
- <br>
-  <p style="font-size: 36px; font-weight: 700; margin-bottom: 20px;line-height: 1.3;">This is Yuling (孙玉灵).
-                      </p>
+          <p style="font-size: 36px; font-weight: 700; margin-bottom: 10px; padding-top: 80px; line-height: 1.8;">
+            Hey! 你好呀 ☺
+          </p>
+          <br>
 
-          <br> 
-          <p style="line-height: 1.8;"> I am a professor at
+          <p style="font-size: 36px; font-weight: 700; margin-bottom: 20px; line-height: 1.3;">
+            This is Yuling (孙玉灵).
+          </p>
+
+          <br>
+          <p style="line-height: 1.8;">
+            I am a professor at
             <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>, and also a visiting professor at
             <a href="https://umich.edu/" target="_black">University of Michigan</a>.
             Before that, I was an associate professor at
@@ -56,54 +135,33 @@
             <a href="https://cscw.fudan.edu.cn/ninggu/list.htm" target="_black">Prof. Ning Gu</a> from
             <a href="https://cscw.fudan.edu.cn/" target="_black">CISL Lab</a> at
             <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>.
-          </p>                 
+          </p>
         </section>
 
-  <section id="userInfo">
-          <img src="./img/homepage.png">
-          <p class="username" onclick="toUrl(0)">Yuling Sun</p>
-          <p>Professor</p>
-          <a href="https://www.fudan.edu.cn/en/" target="_black">Fudan University</a>
-          <div class="icon-box">
-            <img class="icon" src="./img/icon/icon1.jpg" onclick="toUrl(1)">
-            <img class="icon" src="./img/icon/icon2.jpg">
-            <img class="icon" src="./img/icon/icon3.jpg" onclick="toUrl(2)">
-            <img class="icon" src="./img/icon/icon4.jpg" onclick="toUrl(3)">
-          </div>
-        </section>
-        
       </main>
 
+      <!-- ✅ 3) hiring-info（永远在最下面，宽度自动适配） -->
       <section id="hiring-info">
-         <p class="full-width" style="margin-bottom: 0px;line-height: 1.8;">My research lies in the interaction of
-            <span style="font-weight: bold;">Human-computer Interaction (HCI), Computer Supported Collaborative
-              Work(CSCW)</span>, and <span style="font-weight: bold;">Social Computing</span>. My current work primarily focuses on issues of
-            technology(AI)-mediated aging, healthcare, education, city governance, and rural revitalization.
-            I adopt socio-technical approaches to <span style="font-weight: bold;">understand and
-              design human-centered tools, technologies, and systems</span> to <span style="font-weight: bold;">promote individual and social health and
-            well-being</span>. My overarching goal is
-            computing technologies can be better designed to unlock the potential of individuals, support collaborations,
-            promote individual and social well-being, and create a positive societal impact.
-          </p>
-           <p class="full-width" style="line-height: 1.8; margin-top: 0; color: red; font-style: italic;">I am looking for talented and highly motivated Master/PhD students, as well as undergraduates and visiting interns/scholars, who are interested in various research projects on social computing, computer-supported collaborative work, human-computer interaction for aging, healthcare, and education to join my research group at <strong>Fudan University</strong>, starting in Fall 2026. Please send me your CV if you are interested or have any questions.
-          </p>
+        <p class="full-width" style="margin-bottom: 0px; line-height: 1.8;">
+          My research lies in the interaction of
+          <span style="font-weight: bold;">Human-computer Interaction (HCI), Computer Supported Collaborative Work(CSCW)</span>,
+          and <span style="font-weight: bold;">Social Computing</span>. My current work primarily focuses on issues of
+          technology(AI)-mediated aging, healthcare, education, city governance, and rural revitalization.
+          I adopt socio-technical approaches to <span style="font-weight: bold;">understand and design human-centered tools, technologies, and systems</span>
+          to <span style="font-weight: bold;">promote individual and social health and well-being</span>. My overarching goal is
+          computing technologies can be better designed to unlock the potential of individuals, support collaborations,
+          promote individual and social well-being, and create a positive societal impact.
+        </p>
+
+        <p class="full-width" style="line-height: 1.8; margin-top: 0; color: red; font-style: italic;">
+          I am looking for talented and highly motivated Master/PhD students, as well as undergraduates and visiting interns/scholars,
+          who are interested in various research projects on social computing, computer-supported collaborative work, human-computer interaction
+          for aging, healthcare, and education to join my research group at <strong>Fudan University</strong>, starting in Fall 2026.
+          Please send me your CV if you are interested or have any questions.
+        </p>
       </section>
 
-      
     </div>
   </div>
-
-  <style>
-    .home > p {
-      line-height: 2;
-    }
-  </style>
 </body>
-
-
-<style>
-  .home>p {
-    line-height: 2
-  }
-</style>
 </html>
