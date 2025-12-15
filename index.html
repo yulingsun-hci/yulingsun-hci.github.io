@@ -9,69 +9,88 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="./common.js"></script>
 
-  <style>
-    /* ===== Page-only layout fixes (Home page) ===== */
+ <style>
+  /* ===== Page-only layout fixes (Home page) ===== */
 
-    /* 1) 统一：section 内文字行高 */
-    .home > p { line-height: 2; }
+  .home > p { line-height: 2; }
 
-    /* 2) 主内容区布局：桌面默认 content + userInfo 并排 */
+  /* 桌面默认：两列 */
+  #main{
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  /* ✅ 桌面端：强制 content 在左、userInfo 在右（不管 HTML 顺序） */
+  #content.home{
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  #userInfo{
+    order: 2;
+    flex: 0 0 280px;
+    max-width: 320px;
+  }
+
+  /* hiring-info 永远在 main 下面 */
+  #hiring-info{
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 18px;
+  }
+
+  /* 移动端：userInfo 在上，content 在下，然后 hiring-info */
+  @media (max-width: 768px){
     #main{
-      display: flex;
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    /* content / userInfo 的基础占比（桌面） */
-    #content.home{
-      flex: 1 1 auto;
-      min-width: 0;
+      flex-direction: column;
+      gap: 18px;
     }
 
     #userInfo{
-      flex: 0 0 280px;   /* 桌面侧边栏宽度，可按你喜好调 */
-      max-width: 320px;
+      order: 1;
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
     }
 
-    /* 3) hiring-info：永远在 main 下面，且和 content-wrapper 同宽 */
+    #content.home{
+      order: 2;
+      width: 100%;
+      max-width: 100%;
+    }
+
     #hiring-info{
       width: 100%;
-      box-sizing: border-box;
-      margin-top: 18px;
+      max-width: 100%;
     }
 
-    /* 4) 移动端：userInfo 在上，content 在下，然后 hiring-info */
-    @media (max-width: 768px){
-      /* 让 main 纵向堆叠 */
-      #main{
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      /* 改变顺序：userInfo -> content */
-      #userInfo{ order: 1; }
-      #content.home{ order: 2; }
-
-      /* 宽度自适配手机 */
-      #userInfo,
-      #content.home,
-      #hiring-info{
-        width: 100%;
-        max-width: 100%;
-      }
-
-      /* 避免你 content 里写死 padding-top:80px 在手机太空 */
-      #content.home p[style*="padding-top: 80px"]{
-        padding-top: 24px !important;
-      }
-
-      /* userInfo 图片在手机更友好一点（可选） */
-      #userInfo img{
-        max-width: 120px;
-        height: auto;
-      }
+    /* 你的 padding-top:80px 手机上太空就收一下 */
+    #content.home p[style*="padding-top: 80px"]{
+      padding-top: 24px !important;
     }
-  </style>
+
+    /* 头像居中更友好 */
+    #userInfo img{
+      display: block;
+      margin: 0 auto;
+      max-width: 120px;
+      height: auto;
+    }
+
+    /* icon 行居中 */
+    #userInfo .icon-box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  }
+</style>
+
 </head>
 
 <body>
