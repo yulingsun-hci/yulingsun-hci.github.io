@@ -8,6 +8,56 @@
   <link rel="icon" href="./img/homepage.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* list spacing */
+  li { margin-left: 18px; margin-top: 10px; }
+
+  /* ===== Desktop: keep two-column layout (if your global CSS already does, this won't break it) ===== */
+  #main{
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  #content{ flex: 1 1 auto; min-width: 0; }
+  #userInfo{ flex: 0 0 280px; max-width: 320px; }
+
+  /* ===== Mobile: userInfo on top, content below, full width ===== */
+  @media (max-width: 768px){
+    #main{
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* 强制显示 userInfo + 放在上面 */
+    #userInfo{
+      display: block !important;
+      order: 1;
+      width: 100%;
+      max-width: 100%;
+      flex: none;
+    }
+
+    /* content 在下面 */
+    #content{
+      order: 2;
+      width: 100%;
+      max-width: 100%;
+      flex: none;
+    }
+
+    /* 头像与图标在手机更友好 */
+    #userInfo img{
+      max-width: 120px;
+      height: auto;
+    }
+    #userInfo .icon-box{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  }
+</style>
 
   <script src="./common.js"></script>
 </head>
@@ -116,9 +166,4 @@
 </body>
 
 </html>
-<style>
-  li {
-    margin-left: 18px;
-    margin-top: 10px;
-  }
-</style>
+
