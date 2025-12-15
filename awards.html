@@ -23,40 +23,66 @@
 
   /* ===== Mobile: userInfo on top, content below, full width ===== */
   @media (max-width: 768px){
-    #main{
-      flex-direction: column;
-      gap: 16px;
-    }
 
-    /* 强制显示 userInfo + 放在上面 */
-    #userInfo{
-      display: block !important;
-      order: 1;
-      width: 100%;
-      max-width: 100%;
-      flex: none;
-    }
-
-    /* content 在下面 */
-    #content{
-      order: 2;
-      width: 100%;
-      max-width: 100%;
-      flex: none;
-    }
-
-    /* 头像与图标在手机更友好 */
-    #userInfo img{
-      max-width: 120px;
-      height: auto;
-    }
-    #userInfo .icon-box{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
+  /* ===== 主布局纵向 ===== */
+  #main{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
+
+  /* ===== userInfo 在最上方，宽度铺满并整体居中 ===== */
+  #userInfo{
+    display: block !important;
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+
+    /* 文本与内部元素居中 */
+    text-align: center;
+
+    /* 清除可能的旧布局 */
+    float: none !important;
+  }
+
+  /* ===== 头像居中 ===== */
+  #userInfo img{
+    display: block;
+    margin: 0 auto;
+    max-width: 120px;
+    height: auto;
+    float: none !important;
+  }
+
+  /* ===== icon 行：强制居中（处理 float / 全站覆盖） ===== */
+  #userInfo .icon-box{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+
+    float: none !important;
+    text-align: center;
+  }
+
+  #userInfo .icon-box .icon{
+    display: inline-flex;
+    margin: 0;
+    float: none !important;
+  }
+
+  /* ===== content 在 userInfo 下方，宽度铺满 ===== */
+  #content{
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+}
+
 </style>
 
   <script src="./common.js"></script>
