@@ -54,32 +54,30 @@ li {
   max-width: 320px;
 }
 
-/* ===== Mobile layout: userInfo on top, content below ===== */
+/* ===== Mobile layout: userInfo on top, content below (icons truly centered) ===== */
 @media (max-width: 768px) {
 
-  /* ===== 主布局纵向 ===== */
+  /* 主布局纵向 */
   #main {
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
-  /* ===== userInfo 在最上方，宽度铺满并居中 ===== */
+  /* userInfo 在最上方，宽度铺满并居中 */
   #userInfo {
     display: block !important;
     order: 1;
     width: 100%;
     max-width: 100%;
     flex: none;
+    text-align: center !important;
 
-    /* 文本整体居中 */
-    text-align: center;
-
-    /* 清除可能的旧布局干扰 */
+    /* 清除旧布局干扰 */
     float: none !important;
   }
 
-  /* ===== 头像居中 ===== */
+  /* 头像居中 */
   #userInfo img {
     display: block;
     margin: 0 auto;
@@ -88,27 +86,30 @@ li {
     float: none !important;
   }
 
-  /* ===== icon 行：强制居中（必胜版） ===== */
+  /* ✅ icon 行：强制居中（必胜版） */
   #userInfo .icon-box {
     display: flex !important;
     justify-content: center !important;
-    align-items: center;
+    align-items: center !important;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 10px;
 
-    /* 清掉旧样式 */
+    /* 🔑 关键：清掉旧样式/固定宽度 */
     float: none !important;
-    text-align: center;
+    width: auto !important;
+    text-align: center !important;
   }
 
+  /* ✅ 你这里用的是 <img class="icon">，所以 img 也要清 float */
+  #userInfo .icon-box img,
   #userInfo .icon-box .icon {
-    display: inline-flex;
-    margin: 0;
     float: none !important;
+    display: inline-flex !important;
+    margin: 0 !important;
   }
 
-  /* ===== content 在 userInfo 下方，宽度铺满 ===== */
+  /* content 在 userInfo 下方，宽度铺满 */
   #content {
     order: 2;
     width: 100%;
