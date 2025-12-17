@@ -1,310 +1,164 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yuling Sun</title>
-  <link rel="icon" href="./img/homepage.png" type="image/x-icon" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="./common.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yuling Sun</title>
 
-  <!-- ✅ Research page-only CSS: put it in <head> so it always works -->
-  <style>
-    /* =========================
-      Research Page ONLY
-      Goal: make research-title/tabs/card align with .header-container (Yuling Sun)
-      ========================= */
+<link rel="icon" href="./img/homepage.png" type="image/x-icon" />
+<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+<script src="./common.js"></script>
 
-    /* 防止 1px 偏差 */
-    *, *::before, *::after { box-sizing: border-box; }
+<style>
+/* ================= Research page only ================= */
+*, *::before, *::after { box-sizing: border-box; }
 
-    /* ✅ 关键：本页把 content-wrapper 的缩进/限宽清掉（只影响本 Research 页） */
-    .content-wrapper{
-      max-width: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-
-    /* Research 外层背景与上下间距 */
-    .research-area{
-      width: 100%;
-      background-color: #f4f5f8;
-      padding: 40px 0 60px;
-    }
-
-    /* ✅ 关键：Research 版心 = header-container（1050 + 左右 50） */
-    .research-container{
-      max-width: 1050px !important;
-      margin: 0 auto !important;
-      padding-left: 50px !important;
-      padding-right: 50px !important;
-    }
-
-    .overview-body{
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+html, body {
+  background:#f4f5f8;
+  overflow-y: scroll;
 }
 
-/* 图片容器：居中 */
-.overview-image{
-  display: flex;
-  justify-content: center;
-}
-
-/* 图片：宽度自适应 panel */
-.overview-image img{
-  width: 100%;
-  max-width: 100%;     /* 不超过 panel */
-  height: auto;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
-/* 图片下方说明文字 */
-.overview-desc{
-  font-size: 14px;
-  line-height: 1.7;
-  color: #334155;
-  margin: 0;
-  text-align: left;
-}
-
-    @media (max-width: 768px){
-      .research-container{
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-      }
-    }
-
-    /* 标题 */
-    .research-title{
-      font-size: 26px;
-      font-weight: 700;
-      color: #1f2a3c;
-      margin: 0 0 18px 0;
-    }
-
-    /* tabs */
-    .research-tabs{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 0 18px 0;
-    }
-
-    .research-tab{
-      appearance: none;
-      border: 1px solid #d3d7de;
-      background-color: #e8ecf2;
-      color: #3a4560;
-      font-size: 14px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .research-tab.active{
-      background-color: #1f2a3c;
-      color: #ffffff;
-      border-color: #1f2a3c;
-    }
-
-    /* 内容卡片 */
-    .research-card{
-      width: 100%;
-      background: #ffffff;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 8px 20px rgba(31, 42, 60, 0.08);
-    }
-
-    /* panel toggle */
-    .research-panel{ display:none; }
-    .research-panel.active{ display:block; }
-
-    .research-card-header{
-      padding: 18px 20px;
-      background: #fbfbfd;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-    .research-card-header h3{
-      margin: 0;
-      font-size: 16px;
-      font-weight: 700;
-      color: #1f2a3c;
-    }
-
-    .research-card-body{
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    /* ===== Overview panel: stack layout (labels -> image -> text) ===== */
-.research-panel[data-tab="Overview"] .research-card-body.overview-stack{
-  display: block !important;      /* 覆盖原来的 grid 双列 */
-  padding: 20px;
-}
-
-.research-panel[data-tab="Overview"] .research-labels{
-  margin-bottom: 14px;
-}
-
-/* 图片区域：占满 card body 宽度 + 居中 */
-.research-panel[data-tab="Overview"] .overview-image{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 6px 0 14px 0;
-}
-
-.research-panel[data-tab="Overview"] .overview-image img{
-  width: 100% !important;        /* 满宽 */
-  max-width: 100% !important;    /* 不要限制 420px */
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
-/* 文字同宽（自然就是 100%） */
-.research-panel[data-tab="Overview"] .overview-text{
-  width: 100%;
-}
-
-    @media (max-width: 900px){
-      .research-card-body{ grid-template-columns: 1fr; }
-    }
-
-    .research-card-image{
-      display: flex;
-      justify-content: flex-end;
-    }
-    .research-card-image img{
-      width: 100%;
-      max-width: 420px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.06);
-      display: block;
-      height: auto;
-    }
-
-    .research-labels{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .badge{
-      padding: 6px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-    .badge-purple { background: rgba(123,97,255,0.12); color: #3d2cc4; }
-    .badge-green  { background: rgba(34,197,94,0.12);  color: #137a3a; }
-    .badge-blue   { background: rgba(59,130,246,0.12); color: #1d4ed8; }
-    .badge-orange { background: rgba(249,115,22,0.12); color: #b45309; }
-
-    .research-desc{
-      font-size: 14px;
-      line-height: 1.65;
-      color: #334155;
-      margin-bottom: 14px;
-    }
-    .research-subtitle{
-      font-size: 14px;
-      font-weight: 700;
-      color: #1f2a3c;
-      margin: 14px 0 8px;
-    }
-    .research-pubs{
-      padding-left: 18px;
-      margin: 0;
-      font-size: 14px;
-      color: #334155;
-    }
-    .research-pubs li{ margin: 6px 0; }
-    /* Fix: prevent layout shift caused by scrollbar */
-html { overflow-y: scroll; }
-    
-    /* Fix: force show the title even if global CSS hides h2 */
-.research-title{
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  height: auto !important;
-  font-size: 26px !important;
-  color: #1f2a3c !important;
-  margin: 0 0 18px 0 !important;
-}
-    /* ===== Hard reset: force show Research title (page-only) ===== */
-.content-wrapper .research-area h2.research-title{
-  all: unset !important;          /* 关键：清空全站对 h2 的所有怪规则 */
-  display: block !important;
-  font-family: "Open Sans", sans-serif !important;
-  font-size: 26px !important;
-  font-weight: 700 !important;
-  color: #1f2a3c !important;
-  line-height: 1.2 !important;
-  margin: 0 0 18px 0 !important;
-
-  /* 防止被定位/裁剪/遮挡 */
-  position: relative !important;
-  left: auto !important;
-  top: auto !important;
-  transform: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 2 !important;
-}
-
+/* 去掉全站 content-wrapper 的限制 */
 .content-wrapper{
-  padding-top: 90px !important;   /* 改成你 header 的实际高度，常见 70~100 */
+  max-width:none !important;
+  margin:0 !important;
+  padding:90px 0 0 !important;
+  background:#f4f5f8;
 }
 
-/* 保险：title 再往下顶一点 */
+/* research 外框 */
+.research-area{
+  padding:40px 0 60px;
+}
+
+/* 对齐 header-container */
+.research-container{
+  max-width:1050px;
+  margin:0 auto;
+  padding:0 50px;
+}
+@media (max-width:768px){
+  .research-container{ padding:0 20px; }
+}
+
+/* title */
 .research-title{
-  padding-top: 6px !important;
+  font-size:26px;
+  font-weight:700;
+  color:#1f2a3c;
+  margin-bottom:18px;
 }
 
-    html, body {
-  background-color: #f4f5f8;
+/* tabs */
+.research-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:18px;
+}
+.research-tab{
+  border:1px solid #d3d7de;
+  background:#e8ecf2;
+  color:#3a4560;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:14px;
+  cursor:pointer;
+}
+.research-tab.active{
+  background:#1f2a3c;
+  color:#fff;
+  border-color:#1f2a3c;
+}
 
-      /* 防止中间容器露出白色 */
-.content-wrapper,
-main {
-  background-color: #f4f5f8;
-    
-  </style>
+/* card */
+.research-card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 8px 20px rgba(31,42,60,.08);
+}
+
+/* panel */
+.research-panel{ display:none; }
+.research-panel.active{ display:block; }
+
+/* header */
+.research-card-header{
+  padding:18px 20px;
+  background:#fbfbfd;
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.research-card-header h3{
+  margin:0;
+  font-size:16px;
+  font-weight:700;
+}
+
+/* ===== 核心：所有 panel 统一纵向 ===== */
+.research-card-body.overview-stack{
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* labels */
+.research-labels{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.badge{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:600;
+  border:1px solid rgba(0,0,0,.08);
+}
+.badge-purple{ background:rgba(123,97,255,.12); color:#3d2cc4; }
+.badge-green{ background:rgba(34,197,94,.12); color:#137a3a; }
+.badge-blue{ background:rgba(59,130,246,.12); color:#1d4ed8; }
+.badge-orange{ background:rgba(249,115,22,.12); color:#b45309; }
+
+/* image */
+.overview-image{
+  display:flex;
+  justify-content:center;
+}
+.overview-image img{
+  width:100%;
+  max-width:100%;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.06);
+}
+
+/* text */
+.research-desc{
+  font-size:14px;
+  line-height:1.65;
+  color:#334155;
+  text-align:justify;
+}
+.research-subtitle{
+  font-size:14px;
+  font-weight:700;
+  margin-top:14px;
+}
+.research-pubs{
+  padding-left:18px;
+  font-size:14px;
+}
+.research-pubs li{ margin:6px 0; }
+
+</style>
 </head>
 
-<body>
-  <header id="header">
-    <div class="header-container">
-      <h1><span>Yuling Sun</span></h1>
-      <div class="menu-container">
-        <span onclick="changeMenu(0)">Home</span>
-        <span onclick="changeMenu(1)">News</span>
-        <span onclick="changeMenu(2)">Publications</span>
-        <span class="active" onclick="changeMenu(null)">Research</span>
-        <span onclick="changeMenu(4)">Awards</span>
-        <!-- <span onclick="changeMenu(5)">Students</span> -->
-        <span onclick="changeMenu(5)">Life</span>
-        <span onclick="changeMenu(6)">Contact</span>
-      </div>
-    </div>
-  </header>
 
   <div class="content-wrapper">
-    <main id="main">
+    <main>
       <section class="research-area">
         <div class="research-container">
 
@@ -448,13 +302,17 @@ main {
               <div class="research-card-header">
                 <h3>Aging in Digital Era</h3>
               </div>
-              <div class="research-card-body">
-                <div class="research-card-text">
+                <div class="research-card-body overview-stack">
+
                   <div class="research-labels">
                     <span class="badge badge-purple">#Aging</span>
                     <span class="badge badge-green">#ICT/AI</span>
                     <span class="badge badge-orange">#Retiree</span>
                   </div>
+    <div class="research-card-image overview-image">
+      <img src="img/projects/2-aging-EDU.png" alt="Overview" />
+    </div>
+                  <div class="research-card-text overview-text">
                   <p class="research-desc">
                     Population aging has become one of the most pressing livelihood and social governance challenges facing contemporary societies. With the rapid advancement of digital technologies, older adults’ lifestyles, forms of social participation, learning practices, and identity construction are undergoing profound transformations. On the one hand, digital technologies offer older adults unprecedented opportunities for social connection, lifelong learning, and self-expression. On the other hand, technological barriers, platform logics, and algorithmic mechanisms may also exacerbate digital inequalities, reshaping older adults’ social positioning and everyday lived experiences. Against this backdrop, this project aims to move beyond singular perspectives focused on “technology usability” or the “digital divide” by grounding its inquiry in older adults’ lived experiences. We examine how older adults learn, collaborate, express themselves, and become embedded in digital society in the digital era. Drawing on HCI and CSCW as its core methodological frameworks, the project seeks to develop a systematic understanding of how digital technologies function as sociotechnical infrastructures that deeply shape older adults’ learning, work, emotional lives, and identity construction, ultimately informing inclusive technology design, public policy, and social innovation in aging societies.
                   </p>
@@ -506,24 +364,30 @@ main {
                     
                   </ul>
                 </div>
-                <div class="research-card-image">
-                  <img src="img/research-aging.png" alt="ICT for aging" />
-                </div>
               </div>
             </div>
 
+            
             <div class="research-panel" data-tab="AI4Healthcare">
               <div class="research-card-header">
                 <h3>Data/AI-Powered Collaborative Healthcare</h3>
               </div>
-              <div class="research-card-body">
-                <div class="research-card-text">
+              
+  <div class="research-card-body overview-stack">
+    <!-- 标签行 -->
                   <div class="research-labels">
                     <span class="badge badge-blue">#Data/AI</span>
                     <span class="badge badge-orange">#Healthcare</span>
                     <span class="badge badge-green">#Collaboration</span>
                     <span class="badge badge-purple">#Care Providers</span>
                   </div>
+
+        <!-- 图片：满宽居中 -->
+    <div class="research-card-image overview-image">
+      <img src="img/projects/3-collaborative-1.png" alt="Overview" />
+    </div>
+
+        <div class="research-card-text overview-text">
                   <p class="research-desc">
                     In recent years, growing efforts have been devoted to designing data-driven and AI-enabled systems to connect multiple stakeholders and improve coordination, efficiency, and decision-making in healthcare. However, the practical deployment of these technologies often reveals fundamental tensions, because healthcare, particularly for older adults, is inherently a complex collaborative process involving patients, family caregivers, clinicians, care workers, institutions, and increasingly, data- and AI-driven technologies, deeply situated in specific organizational, cultural, and infrastructural contexts. This project aims to critically examine, and thoughtfully design data- and AI-driven technologies for collaborative healthcare, with a particular focus on investigating how data and AI systems mediate collaboration across multiple stakeholders over time, how they reshape roles, responsibilities, power relations, and care experiences, and how care work is practically accomplished in datafied environments, and then informing the design of responsible AI systems, collaborative healthcare technologies, and policies that are sensitive to the real-world multi-stakeholder collaborative caregiving process.
                   </p>
@@ -609,25 +473,28 @@ main {
                     
                   </ul>
                 </div>
-                <div class="research-card-image">
-                  <img src="img/research-health.png" alt="AI healthcare" />
-                </div>
               </div>
             </div>
 
             <div class="research-panel" data-tab="AI4Edu">
               <div class="research-card-header">
-                <h3>AI-powered Education</h3>
+                <h3>AI-Powered Education</h3>
               </div>
-              <div class="research-card-body">
-                <div class="research-card-text">
+              
+  <div class="research-card-body overview-stack">
                   <div class="research-labels">
                     <span class="badge badge-purple">#Education</span>
                     <span class="badge badge-blue">#ICT/AI</span>
-                      <span class="badge badge-green">#preschoolers</span>
-                      <span class="badge badge-green">#Older Adults</span>
-
+                      <span class="badge badge-green">#Preschoolers</span>
+                      <span class="badge badge-orange">#Older Adults</span>
                   </div>
+    
+        <!-- 图片：满宽居中 -->
+    <div class="research-card-image overview-image">
+      <img src="img/projects/4-edu-preschooler.png" alt="Overview" />
+    </div>
+        <!-- 文字：在下方，满宽 -->
+    <div class="research-card-text overview-text">
                   <p class="research-desc">
                     Includes AI-powered learning, children’s personalized LLM tools,
                     LS learning among retirees, and digital literacy topics.
@@ -672,25 +539,27 @@ main {
                     
                   </ul>
                 </div>
-                <div class="research-card-image">
-                  <img src="img/research-edu.png" alt="AI education" />
-                </div>
               </div>
             </div>
 
             <div class="research-panel" data-tab="ICT4Rural">
               <div class="research-card-header">
-                <h3>5.	Rural Revitalization in Digital Era</h3>
+                <h3>Rural Revitalization in Digital Era</h3>
               </div>
-              <div class="research-card-body">
-                <div class="research-card-text">
+              
+   <div class="research-card-body overview-stack">
                   <div class="research-labels">
                     <span class="badge badge-green">#Rural Revitalization</span>
                     <span class="badge badge-blue">#Infrastructure</span>
                      <span class="badge badge-purple">#Education</span>
                      <span class="badge badge-blue">#Healthcare</span>
                   </div>
-                  <p class="research-desc">
+         <!-- 图片：满宽居中 -->
+    <div class="research-card-image overview-image">
+      <img src="img/projects/5-rural-infrastructure.png" alt="Overview" />
+    </div>
+<div class="research-card-text overview-text">
+<p class="research-desc">
                     Rural revitalization has become a critical social and developmental challenge. Rural contexts are characterized by distinct social structures, infrastructural conditions, cultural practices, and economic constraints, which fundamentally shape how digital technologies are adopted, adapted, and experienced. This project examines the usability, impacts, and unintended consequences of digital technologies in rural settings, with a particular focus on agriculture, education, governance and management, entrepreneurship, and elderly care. We aim to contribute a more nuanced understanding of rural digitalization as an ongoing sociotechnical process, offering empirical insights, conceptual frameworks, and design implications for developing inclusive, context-sensitive digital technologies and policies that genuinely support sustainable rural revitalization in the digital era.
                   </p>
                   <h4 class="research-subtitle">Selected Publications</h4>
@@ -726,9 +595,6 @@ main {
     </li>
                   </ul>
                 </div>
-                <div class="research-card-image">
-                  <img src="img/research-rural.png" alt="ICT rural" />
-                </div>
               </div>
             </div>
 
@@ -736,8 +602,8 @@ main {
               <div class="research-card-header">
                 <h3>Data-Driven Governance</h3>
               </div>
-              <div class="research-card-body">
-                <div class="research-card-text">
+              
+  <div class="research-card-body overview-stack">
                   <div class="research-labels">
                     <span class="badge badge-orange">#Governance</span>
                     <span class="badge badge-blue">#Data-Driven</span>
@@ -745,7 +611,12 @@ main {
                     <span class="badge badge-blue">#Equitable</span>
                     <span class="badge badge-blue">#Critical Computing</span>
                   </div>
-                  <p class="research-desc">
+    
+        <div class="research-card-image overview-image">
+      <img src="img/projects/6-governance-care.png" alt="Overview" />
+    </div>
+                     <div class="research-card-text overview-text">
+ <p class="research-desc">
                     This project examines the use, implementation, and societal implications of data-driven technologies across diverse domains of governance. As data infrastructures, algorithmic systems, and AI technologies increasingly mediate public administration, healthcare, social services, and urban management, governance is being reshaped in ways that extend far beyond efficiency or automation. This project seeks to understand how data-driven governance operates in practice, how it is sustained through everyday work, and what consequences it has for governance processes, social relations, and individual and collective well-being, utimately offering empirical evidence, conceptual frameworks, and design implications for developing more accountable, humane, and socially sustainable approaches to data-driven governance.
                   </p>
                   <h4 class="research-subtitle">Selected Publications</h4>
@@ -795,9 +666,6 @@ main {
                   
                   
                   </ul>
-                </div>
-                <div class="research-card-image">
-                  <img src="img/research-gov.png" alt="AI governance" />
                 </div>
               </div>
             </div>
